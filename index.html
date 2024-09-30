@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Juan Manuel Rabuñal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <img src="img/professional-photo.jpg" alt="Foto de Juan Manuel Rabuñal" class="profile-photo">
+        <h1>Juan Manuel Rabuñal</h1>
+        <p>Full Stack Developer | Angular | .NET Core | AWS</p>
+        <nav>
+            <ul>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Proyectos -->
+    <section id="proyectos">
+        <h2>Proyectos</h2>
+        <div class="proyecto">
+            <h3>Solución Fintech - Kinamic</h3>
+            <p>Desarrollo de una solución web Fintech usando Angular y .NET Core.</p>
+            <p><strong>Tecnologías:</strong> Angular, C# .NET Core, AWS</p>
+            <p><strong>Duración:</strong> Junio 2022 - Presente</p>
+            <a href="https://github.com/juanmarab/solucion-fintech" target="_blank">Ver repositorio</a>
+        </div>
+        <div class="proyecto">
+            <h3>Plataforma de Retail - Tata Consultancy Services</h3>
+            <p>Participación en el desarrollo de una plataforma retail usando Java Spring Boot.</p>
+            <p><strong>Tecnologías:</strong> Java, Spring Boot</p>
+            <p><strong>Duración:</strong> Junio 2021 - Octubre 2021</p>
+            <a href="https://github.com/juanmarab/plataforma-retail" target="_blank">Ver repositorio</a>
+        </div>
+    </section>
+
+    <!-- Sección Sobre mí -->
+    <section id="about">
+        <h2>Sobre mí</h2>
+        <p>Soy un desarrollador Full Stack con experiencia en aplicaciones web usando Angular y .NET Core.</p>
+        <!-- Gráfico de habilidades -->
+        <h3>Habilidades Técnicas</h3>
+        <canvas id="skillsChart"></canvas>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>Puedes contactarme a través del siguiente formulario o enviarme un correo a <strong>juanmarabunal@gmail.com</strong>.</p>
+
+        <form action="https://formspree.io/f/{your_form_id}" method="POST">
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <label for="message">Mensaje:</label>
+            <textarea name="message" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Juan Manuel Rabuñal | <a href="https://github.com/juanmarab" target="_blank">GitHub</a></p>
+    </footer>
+
+    <!-- Script para el gráfico de habilidades -->
+    <script src="script.js"></script>
+</body>
+</html>
