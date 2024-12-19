@@ -1,12 +1,25 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { EducationComponent } from './components/education/education.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { AboutComponent } from './components/about/about.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [
+    HeaderComponent,
+    FooterComponent,
+    ContactComponent,
+    ExperienceComponent,
+    EducationComponent,
+    SkillsComponent,
+    AboutComponent,
+  ]
 })
-export class AppComponent {
-  title = 'portfolio';
-}
+export class AppComponent {}
