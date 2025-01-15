@@ -1,16 +1,32 @@
 .about-container {
   padding: 20px;
-  background-color: inherit; /* Hereda el color del contenedor */
+  background-color: inherit; /* Hereda el color */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.about-content {
+  display: flex; /* Diseño horizontal */
+  align-items: center; /* Centra verticalmente */
+  gap: 20px; /* Espaciado entre imagen y texto */
+}
+
+.about-image {
+  width: 150px; /* Tamaño de la imagen */
+  height: 150px; /* Mantén las proporciones */
+  border-radius: 50%; /* Haz la imagen redonda */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade un efecto de profundidad */
+}
+
 .about-container h1 {
-  font-size: 2rem;
-  color: inherit; /* Hereda el color del contenedor */
+  font-size: 2.5rem;
+  color: #2c2c54; /* Color principal */
+  text-align: left; /* Asegura alineación en pantallas pequeñas */
+  margin-bottom: 10px;
 }
 
 .about-container p {
   font-size: 1.2rem;
-  color: inherit; /* Hereda el color del contenedor */
+  color: #666;
+  text-align: left;
 }
