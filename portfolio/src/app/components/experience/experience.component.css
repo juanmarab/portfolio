@@ -1,7 +1,7 @@
 :host {
     display: block;
-    background-color: #2c2c54; /* Fondo oscuro */
-    color: #fff;
+    background-color: inherit; /* Hereda el color del contenedor */
+    color: inherit; /* Hereda el color del contenedor */
     padding: 2rem 0;
 }
 
@@ -32,26 +32,4 @@ h2 {
 .experience-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.experience-card h3 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #2c2c54;
-}
-
-.experience-card .company {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-.experience-card .dates {
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-.experience-card ul {
-    list-style-type: disc;
-    margin-left: 20px;
 }
