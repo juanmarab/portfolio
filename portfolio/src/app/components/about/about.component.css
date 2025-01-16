@@ -11,11 +11,22 @@
   gap: 20px; /* Espaciado entre imagen y texto */
 }
 
+.image-container {
+  width: 300px; /* Ancho fijo para el contenedor */
+  height: 200px; /* Alto fijo para el contenedor */
+  overflow: hidden; /* Oculta cualquier exceso de imagen */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade profundidad */
+}
+
 .about-image {
-  width: 150px; /* Tamaño de la imagen */
-  height: 150px; /* Mantén las proporciones */
-  border-radius: 50%; /* Haz la imagen redonda */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade un efecto de profundidad */
+  width: 100%; /* Escala al 100% del contenedor */
+  height: 100%; /* Escala al 100% del contenedor */
+  object-fit: cover; /* Ajusta la imagen al contenedor sin distorsión */
+}
+
+.text-container {
+  flex: 1; /* Toma el resto del espacio */
 }
 
 .about-container h1 {
