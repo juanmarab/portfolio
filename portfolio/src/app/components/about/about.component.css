@@ -1,0 +1,43 @@
+.about-container {
+  padding: 20px;
+  background-color: inherit; /* Hereda el color */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+  display: flex; /* Diseño horizontal */
+  align-items: center; /* Centra verticalmente */
+  gap: 20px; /* Espaciado entre imagen y texto */
+}
+
+.image-container {
+  width: 300px; /* Ancho fijo para el contenedor */
+  height: 200px; /* Alto fijo para el contenedor */
+  overflow: hidden; /* Oculta cualquier exceso de imagen */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade profundidad */
+}
+
+.about-image {
+  width: 100%; /* Escala al 100% del contenedor */
+  height: 100%; /* Escala al 100% del contenedor */
+  object-fit: cover; /* Ajusta la imagen al contenedor sin distorsión */
+}
+
+.text-container {
+  flex: 1; /* Toma el resto del espacio */
+}
+
+.about-container h1 {
+  font-size: 2.5rem;
+  color: #2c2c54; /* Color principal */
+  text-align: left; /* Asegura alineación en pantallas pequeñas */
+  margin-bottom: 10px;
+}
+
+.about-container p {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: left;
+}
