@@ -1,0 +1,35 @@
+:host {
+    display: block;
+    background-color: inherit; /* Hereda el color del contenedor */
+    color: inherit; /* Hereda el color del contenedor */
+    padding: 2rem 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.experience-grid {
+    display: flex;
+    flex-direction: column; /* Disposición vertical */
+    gap: 20px; /* Espaciado entre las tarjetas */
+    margin-top: 20px;
+    align-items: center; /* Centrar las tarjetas */
+}
+
+.experience-card {
+    background-color: #fff;
+    color: #2c2c54;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 800px; /* Ancho máximo */
+    width: 100%; /* Asegura que se adapte al tamaño disponible */
+    margin: 0 auto; /* Centra horizontalmente */
+}
+
+.experience-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
