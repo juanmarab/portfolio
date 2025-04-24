@@ -1,16 +1,17 @@
 .header-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #1c1c1c; /* Color óptimo para el header */
-    color: #fff; /* Texto blanco para contraste */
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    z-index: 1000; /* Coloca el header sobre todo */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Añade profundidad */
-  }
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 10px 40px; /* Más padding horizontal para separar del borde */
+  display: flex;
+  justify-content: flex-start; /* Alinea los botones a la izquierda */
+  align-items: center;
+  gap: 20px; /* Espacio entre botones */
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
   
   .header-nav button {
     background: none;
@@ -18,10 +19,10 @@
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
-    padding: 8px 12px;
+    padding: 10px 14px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
+}
   
   .header-nav button:hover {
     background-color: #9b59b6; /* Resalta el botón en violeta */
