@@ -3,7 +3,6 @@ node_modules/
 
 # Angular build output
 dist/
-docs/
 
 # Temporary files
 temp/
