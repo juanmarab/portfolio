@@ -10,14 +10,15 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  overflow-x: auto; /* permite scroll horizontal si hiciera falta */
+  overflow-x: auto; /* Permite scroll horizontal si es necesario */
   white-space: nowrap;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  flex-wrap: nowrap; /* No permite el salto de línea */
 }
 
 .header-nav::-webkit-scrollbar {
-  display: none; /* opcional: oculta la scrollbar en móviles */
+  display: none; /* Opcional: oculta la scrollbar en móviles */
 }
 
 .header-nav button {
@@ -26,21 +27,23 @@
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
-  padding: 10px 14px;
+  padding: 8px 12px; /* Reducir el padding */
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
-  flex: 0 0 auto;
-  white-space: nowrap;
+  flex-shrink: 1; /* Permite que los botones se ajusten en tamaño si es necesario */
+  min-width: 80px; /* Un ancho mínimo para los botones */
+  white-space: nowrap; /* Evitar que el texto se rompa a la siguiente línea */
 }
 
-/* 👇 Mínimo ajuste responsive: achicar el tamaño en pantallas chicas */
+/* 👇 Ajuste para pantallas más pequeñas */
 @media (max-width: 600px) {
   .header-nav button {
-    font-size: 0.7rem; /* achica el texto */
-    padding: 8px 10px; /* achica el padding */
+    font-size: 0.8rem; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+    padding: 4px 6px; /* Ajusta el padding para mayor espacio */
+    min-width: 50px; /* Reducir el ancho mínimo de los botones */
   }
 }
-  
+
 .header-nav button:hover {
   background-color: #9b59b6;
   color: #fff;

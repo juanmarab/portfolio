@@ -9,6 +9,7 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem; /* Para evitar que el contenido se quede pegado a los bordes en pantallas pequeñas */
 }
 
 .footer-content {
@@ -39,7 +40,7 @@
 
 .footer-contact i {
     margin-right: 8px;
-    color:purple;
+    color: purple;
 }
 
 .footer-contact a {
@@ -71,4 +72,34 @@
     margin-top: 1rem;
     font-size: 0.9rem;
     color: #ccc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-social {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .footer-social a {
+        font-size: 1.2rem;
+    }
+    
+    .footer-brand h3 {
+        font-size: 1.3rem;
+    }
+
+    .footer-message {
+        font-size: 0.9rem;
+    }
+
+    .footer-contact p {
+        font-size: 0.9rem;
+    }
 }
