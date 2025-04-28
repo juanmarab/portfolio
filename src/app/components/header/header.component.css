@@ -1,31 +1,47 @@
 .header-nav {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: #1c1c1c;
   color: #fff;
-  padding: 10px 40px; /* Más padding horizontal para separar del borde */
+  padding: 10px 20px;
   display: flex;
-  justify-content: flex-start; /* Alinea los botones a la izquierda */
+  justify-content: flex-start;
   align-items: center;
-  gap: 20px; /* Espacio entre botones */
+  gap: 10px;
+  overflow-x: auto; /* permite scroll horizontal si hiciera falta */
+  white-space: nowrap;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-  
+
+.header-nav::-webkit-scrollbar {
+  display: none; /* opcional: oculta la scrollbar en móviles */
+}
+
+.header-nav button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+/* 👇 Mínimo ajuste responsive: achicar el tamaño en pantallas chicas */
+@media (max-width: 600px) {
   .header-nav button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 10px 14px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.7rem; /* achica el texto */
+    padding: 8px 10px; /* achica el padding */
+  }
 }
   
-  .header-nav button:hover {
-    background-color: #9b59b6; /* Resalta el botón en violeta */
-    color: #fff;
-  }
-  
+.header-nav button:hover {
+  background-color: #9b59b6;
+  color: #fff;
+}
