@@ -34,3 +34,21 @@
   color: #2c2c54;
   margin-right: 8px;
 }
+
+@media (max-width: 600px) {
+  .about-container {
+    padding: 1rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .about-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .about-card h3 {
+    font-size: 1.25rem;
+  }
+}
