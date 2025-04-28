@@ -1,50 +1,78 @@
-:host {
-  display: block;
-  background-color: inherit; /* Hereda el color del contenedor */
-  color: inherit; /* Hereda el color del contenedor */
-  padding: 2rem 0;
-}
-
-h2 {
-  text-align: center; /* Centrar el título */
+/* Estilos base (Mobile) */
+.skills-section {
+  padding: 2rem 1rem;
+  background-color: inherit;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Seis columnas */
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+  gap: 15px;
   justify-items: center;
-  max-width: 1200px; /* Ancho máximo para organizar los ítems */
-  margin: 0 auto; /* Centrar la grilla */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
 }
 
 .skill-card {
-  background-color: #fff; /* Fondo blanco */
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  width: 120px; /* Ancho compacto */
-  height: 120px; /* Alto compacto */
+  width: 100%; /* Ocupa el ancho disponible */
+  max-width: 120px; /* Máximo ancho para evitar estiramiento */
+  height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .skill-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .skill-card img {
-  max-width: 50px; /* Tamaño uniforme de iconos */
-  margin-bottom: 5px;
+  width: 40px; /* Iconos más pequeños en móvil */
+  height: 40px;
+  margin-bottom: 8px;
 }
 
 .skill-name {
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: #2c2c54;
+  text-align: center;
+}
+
+/* Media Queries para pantallas más grandes */
+
+/* Tablet (≥768px) */
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 20px;
+  }
+  .skill-card img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Desktop pequeño (≥992px) */
+@media (min-width: 992px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  }
+}
+
+/* Desktop grande (≥1200px) */
+@media (min-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(6, 1fr); /* 6 columnas */
+  }
 }
