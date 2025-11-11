@@ -1,37 +1,63 @@
-<section>
-  <div class="contact-container">
-    <h2 class="text-center">Get In Touch</h2>
-    <div class="contact-form">
-      <form (submit)="sendEmail($event)">
+<!-- No hay <section> exterior, ya que app.component.html la maneja -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <h2 class="text-center mb-5">Get In Touch</h2>
+      
+      <!-- 
+        1. Cambiamos (submit) por (ngSubmit) y le pasamos la referencia del form.
+        2. #contactForm="ngForm" crea la referencia.
+      -->
+      <form (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm">
+        
         <!-- Name -->
-        <div class="form-group">
-          <label for="name"><i class="fas fa-user"></i> Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required />
+        <div class="mb-3"> <!-- 3. Reemplazamos 'form-group' por 'mb-3' -->
+          <label for="name" class="form-label">
+            <i class="fas fa-user me-2"></i> Name <!-- 'me-2' añade margen -->
+          </label>
+          <input type="text" id="name" name="name" 
+                 class="form-control" placeholder="Enter your name" 
+                 required ngModel #name="ngModel"> <!-- 4. Añadimos 'form-control', 'ngModel' y 'required' -->
         </div>
+        
         <!-- Email -->
-        <div class="form-group">
-          <label for="email"><i class="fas fa-envelope"></i> Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        <div class="mb-3">
+          <label for="email" class="form-label">
+            <i class="fas fa-envelope me-2"></i> Email
+          </label>
+          <input type="email" id="email" name="email" 
+                 class="form-control" placeholder="Enter your email" 
+                 required email ngModel #email="ngModel"> <!-- 5. Añadimos validación 'email' -->
         </div>
+        
         <!-- Message -->
-        <div class="form-group">
-          <label for="message"><i class="fas fa-comment"></i> Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
+        <div class="mb-3">
+          <label for="message" class="form-label">
+            <i class="fas fa-comment me-2"></i> Message
+          </label>
+          <textarea id="message" name="message" rows="4" 
+                    class="form-control" placeholder="Enter your message" 
+                    required ngModel #message="ngModel"></textarea>
         </div>
+        
         <!-- Buttons Container -->
-        <div class="buttons-container">
+        <!-- 6. Usamos Flexbox de Bootstrap para alinear y espaciar los botones -->
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+          
           <!-- Submit -->
-          <button type="submit" class="submit-button">
-            <i class="fas fa-paper-plane"></i> Submit
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="!contactForm.valid">
+            <i class="fas fa-paper-plane me-2"></i> Submit
           </button>
-          <!-- Download Resume -->
+          
+          <!-- Download Resume (Mantenemos tu link y archivo) -->
           <a href="assets/resume Juan Manuel Rabunal (4).pdf" 
-              download="JuanManuelRabunal_Resume.pdf" 
-              class="download-button">
-              <i class="fas fa-file-download"></i> Download Resume
-        </a>
+             download="JuanManuelRabunal_Resume.pdf" 
+             class="btn btn-outline-secondary btn-lg">
+             <i class="fas fa-file-download me-2"></i> Download Resume
+          </a>
         </div>
       </form>
     </div>
   </div>
-</section>
+</div>

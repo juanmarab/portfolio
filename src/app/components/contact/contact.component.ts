@@ -1,34 +1,38 @@
 import { Component } from '@angular/core';
 import emailjs from 'emailjs-com';
+import { FormsModule, NgForm } from '@angular/forms'; // <-- 1. Importar FormsModule y NgForm
+import { CommonModule } from '@angular/common'; // <-- 2. Importar CommonModule para *ngIf
 
 @Component({
   selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  standalone: true, // <-- 3. Marcado como Standalone
+  imports: [
+    CommonModule, // <-- 4. Añadir CommonModule
+    FormsModule   // <-- 5. Añadir FormsModule
+  ],
+  templateUrl: './contact.component.html'
+  // No hay 'styleUrls'
 })
 export class ContactComponent {
 
-  public sendEmail(event: any): void {
-    event.preventDefault(); // Previene el comportamiento por defecto del formulario
+  // 6. La función ahora espera un NgForm, no un 'event'
+  public sendEmail(contactForm: NgForm): void { 
+    // 7. Validar el formulario antes de enviar
+    if (contactForm.invalid) {
+      alert('Please fill in all fields correctly.');
+      return;
+    }
 
     const serviceID = 'service_22qqfjs'; // Tu Service ID
     const templateID = 'portfolio_contact'; // Tu Template ID
     const publicKey = 'rf6aulzAHdwFL8Wdw'; // Tu Public Key
 
-    // Recolecta los datos del formulario
-    const name = event.target.name.value;
-    const email = event.target.email.value;
-    const message = event.target.message.value;
-
-    // Enviar correo con EmailJS
-    emailjs.send(serviceID, templateID, {
-      name: name,
-      email: email,
-      message: message,
-    }, publicKey)
+    // 8. Enviar 'contactForm.value' es más limpio y funciona perfecto
+    emailjs.send(serviceID, templateID, contactForm.value, publicKey)
       .then(response => {
         console.log('Correo enviado exitosamente:', response);
-        alert('Correo enviado exitosamente');
+        alert('Correo enviado exitosamente'); // <-- Reemplazar 'alert' con un modal es un buen próximo paso
+        contactForm.reset(); // <-- Resetea el formulario
       })
       .catch(error => {
         console.error('Error al enviar correo:', error);
