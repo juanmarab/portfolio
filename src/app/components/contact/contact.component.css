@@ -1,0 +1,44 @@
+/*
+ * Estos estilos complementan las clases .btn y .btn-lg de Bootstrap,
+ * dándoles nuestros colores personalizados.
+*/
+
+/* --- 1. Botón de Descarga --- */
+.btn-download {
+  /* "Siempre de color negro" (outline) */
+  background-color: black;
+  color: white;
+  border: 1px solid #000;
+  
+  /* Transición suave para el hover */
+  transition: all 0.3s ease;
+}
+
+/* "Hover" (como pediste) */
+.btn-download:hover {
+  background-color: #9b59b6; /* Tu color violeta */
+  color: #fff;
+  border-color: #9b59b6; /* El borde también debe cambiar */
+}
+
+
+/* --- 2. Botón de Submit --- */
+
+/* Estado Habilitado (cuando el form es VÁLIDO) */
+.btn-submit {
+  background-color: #9b59b6; /* Tu color violeta */
+  color: #fff;
+  border-color: #9b59b6;
+  transition: all 0.3s ease;
+}
+
+/* Estado Deshabilitado (cuando el form es INVÁLIDO) */
+.btn-submit:disabled {
+  /* "como el de descarga" (negro outline) */
+  background-color: transparent;
+  color: #000;
+  border-color: #000;
+  
+  /* Bootstrap añade 'opacity: 0.65' por defecto a los 'disabled',
+     lo cual es perfecto para mostrar que no está activo. */
+}

@@ -5,13 +5,13 @@ import { CommonModule } from '@angular/common'; // <-- 2. Importar CommonModule 
 
 @Component({
   selector: 'app-contact',
-  standalone: true, // <-- 3. Marcado como Standalone
+  standalone: true,
   imports: [
     CommonModule, // <-- 4. Añadir CommonModule
     FormsModule   // <-- 5. Añadir FormsModule
   ],
-  templateUrl: './contact.component.html'
-  // No hay 'styleUrls'
+  templateUrl: './contact.component.html',
+  styleUrl: './contact.component.css'
 })
 export class ContactComponent {
 

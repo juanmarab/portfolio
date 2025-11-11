@@ -41,21 +41,16 @@
                     required ngModel #message="ngModel"></textarea>
         </div>
         
-        <!-- Buttons Container -->
-        <!-- 6. Usamos Flexbox de Bootstrap para alinear y espaciar los botones -->
-        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-          
-          <!-- Submit -->
-          <button type="submit" class="btn btn-primary btn-lg" [disabled]="!contactForm.valid">
-            <i class="fas fa-paper-plane me-2"></i> Submit
-          </button>
-          
-          <!-- Download Resume (Mantenemos tu link y archivo) -->
+        <div class="d-flex flex-wrap justify-content-between gap-3 mt-4">
+
           <a href="assets/resume Juan Manuel Rabunal (4).pdf" 
-             download="JuanManuelRabunal_Resume.pdf" 
-             class="btn btn-outline-secondary btn-lg">
-             <i class="fas fa-file-download me-2"></i> Download Resume
+            download="JuanManuelRabunal_Resume.pdf" 
+            class="btn btn-lg btn-download"> <i class="fas fa-file-download me-2"></i> Download Resume
           </a>
+
+          <button type="submit" class="btn btn-lg btn-submit" [disabled]="!contactForm.valid"> <i class="fas fa-paper-plane me-2"></i> Submit
+          </button>
+        
         </div>
       </form>
     </div>
