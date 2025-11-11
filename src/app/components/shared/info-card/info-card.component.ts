@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-info-card',
   templateUrl: './info-card.component.html',
-  styleUrls: ['./info-card.component.css']
+  styleUrls: ['./info-card.component.css'],
+  imports: [CommonModule],
 })
 export class InfoCardComponent {
 
@@ -12,6 +14,6 @@ export class InfoCardComponent {
   @Input() subtitle: string = ''; // Subtítulo (ej. "Full Stack Developer")
   @Input() dates: string = ''; // Rango de fechas
   @Input() points: string[] = []; // Array de strings para los bullet points
-
+  @Input() mode: 'light' | 'dark' = 'light';
   constructor() { }
 }

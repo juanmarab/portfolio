@@ -1,10 +1,9 @@
 <div class="info-card">
   
-  <img *ngIf="logo" [src]="logo" [alt]="title + ' logo'">
+  <img *ngIf="logo" [src]="logo" [alt]="title + ' logo'" class="info-card-logo">
   
   <h3>{{ title }}</h3>
-  <p class="position">{{ subtitle }}</p>
-  <p class="dates">{{ dates }}</p>
+  <p class="position">{{ subtitle + ' '+ dates}}</p>
 
   <ul *ngIf="points.length > 0">
     <li *ngFor="let point of points">

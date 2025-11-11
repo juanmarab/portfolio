@@ -1,41 +1,21 @@
 <section id="education" class="section section-dark">
-    <div class="container">
-        <h2 class="text-center mb-5">Education</h2>
+  <div class="container">
+    <h2 class="text-center mb-5">Education</h2>
+    
+    <div class="row g-4 justify-content-center">
+      
+      <div *ngFor="let edu of educationHistory" class="col-12 col-lg-10">
         
-        <div class="row g-4 justify-content-center">
-            
-            <div class="col-md-6">
-                <div class="app-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMh6i2GJOjC6DpnfI0rju0zGL9dVVsNH2BGA&s" alt="ORT" 
-                         class="img-fluid mb-3 d-block mx-auto" style="height: 100px; width: auto;">
-                    
-                    <h4 class="h5">Bachelor in Systems</h4>
-                    <p class="text-primary fw-bold mb-1">University ORT Uruguay</p>
-                    <p class="text-muted">(2019 - Present)</p>
-                    <ul>
-                        <li>Currently pursuing a Bachelor's degree in Systems with a focus on software development and technology.</li>
-                        <li>Enhanced problem-solving skills through practical and theoretical projects.</li>
-                        <li>Gained experience in teamwork and collaboration for academic and professional growth.</li>
-                    </ul>
-                </div>
-            </div>
+        <app-info-card
+            [logo]="edu.logo"
+            [title]="edu.title"
+            [subtitle]="edu.subtitle"
+            [dates]="edu.dates"
+            [points]="edu.points">
+        </app-info-card>
 
-            <div class="col-md-6">
-                <div class="app-card">
-                    <img src="https://www2.utu.edu.uy/wp-content/uploads/2025/04/Logotipo-DGETP-Vertical-fondo-sobre-color-2.png" alt="UTU" 
-                         class="img-fluid mb-3 d-block mx-auto" style="height: 100px; width: auto;">
-                    
-                    <h4 class="h5">Technical High School in Computer Science</h4>
-                    <p class="text-primary fw-bold mb-1">UTU, Uruguay</p>
-                    <p class="text-muted">(2015 - 2018)</p>
-                    <ul>
-                        <li>Completed a technical program focused on foundational computing concepts and programming.</li>
-                        <li>Acquired essential skills in software development, algorithms, and data structures.</li>
-                        <li>Developed strong technical abilities, preparing for higher education in the field.</li>
-                    </ul>
-                </div>
-            </div>
-            
-        </div>
+      </div>
+      
     </div>
+  </div>
 </section>
