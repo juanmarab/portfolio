@@ -1,16 +1,22 @@
-<div class="info-card">
-  
-  <div *ngIf="logo" class="info-card-logo-wrapper">
-    <img [src]="logo" [alt]="title + ' logo'" class="info-card-logo">
-  </div>
-  
-  <h3>{{ title }}</h3>
-  <p class="position">{{ subtitle + ' '+ dates}}</p>
+<div class="info-card h-100" 
+     [ngClass]="{ 'info-card--dark': mode === 'dark' }">
 
-  <ul *ngIf="points.length > 0">
-    <li *ngFor="let point of points">
-      {{ point }}
-    </li>
-  </ul>
+  <div *ngIf="title; else freeContentMode">
+    
+    <div *ngIf="logo" class="info-card-logo-wrapper">
+      <img [src]="logo" [alt]="title + ' logo'" class="info-card-logo">
+    </div>
+
+    <h3>{{ title }}</h3>
+    <p class="position">{{ subtitle }}</p>
+    <p class="dates">{{ dates }}</p>
+    <ul *ngIf="points.length > 0">
+      <li *ngFor="let point of points">{{ point }}</li>
+    </ul>
+  </div>
+
+  <ng-template #freeContentMode>
+    <ng-content></ng-content>
+  </ng-template>
 
 </div>
