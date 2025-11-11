@@ -50,8 +50,6 @@ body {
 .section-dark {
   background-color: var(--color-fondo-oscuro);
   color: var(--color-texto-claro); /* <-- TEXTO CLARO POR DEFECTO */
-  border-top: 1px solid #343a40;
-  border-bottom: 1px solid #343a40;
 }
 
 /* Títulos en sección oscura deben ser claros */
@@ -86,6 +84,5 @@ body {
 
 /* color de titulo secundario */
 .text-accent {
-  /* ¡Aquí puedes poner tu tono de violeta favorito! */
   color: white; 
 }
