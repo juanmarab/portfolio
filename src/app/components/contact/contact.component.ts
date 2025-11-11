@@ -15,9 +15,7 @@ import { CommonModule } from '@angular/common'; // <-- 2. Importar CommonModule 
 })
 export class ContactComponent {
 
-  // 6. La función ahora espera un NgForm, no un 'event'
   public sendEmail(contactForm: NgForm): void { 
-    // 7. Validar el formulario antes de enviar
     if (contactForm.invalid) {
       alert('Please fill in all fields correctly.');
       return;
