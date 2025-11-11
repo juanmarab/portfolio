@@ -1,0 +1,15 @@
+<div class="info-card">
+  
+  <img *ngIf="logo" [src]="logo" [alt]="title + ' logo'">
+  
+  <h3>{{ title }}</h3>
+  <p class="position">{{ subtitle }}</p>
+  <p class="dates">{{ dates }}</p>
+
+  <ul *ngIf="points.length > 0">
+    <li *ngFor="let point of points">
+      {{ point }}
+    </li>
+  </ul>
+
+</div>
