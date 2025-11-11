@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importa la fuente web recomendada */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* --- Variables Globales de Diseño --- */
+:root {
+  /* Paleta de Colores Profesional */
+  --color-primario: #0d6efd;       /* Azul de Bootstrap */
+  --color-secundario: #6c757d;    /* Gris secundario */
+  --color-texto-principal: #212529;  /* Negro suave (Bootstrap) */
+  --color-texto-claro: #FFFFFF;
+  --color-fondo-claro: #FFFFFF;
+  --color-fondo-oscuro: #F8F9FA;   /* Un gris muy claro (Bootstrap) */
+  --color-borde: #DEE2E6;          /* Gris de borde (Bootstrap) */
+
+  /* Estilo de Tarjetas y Botones */
+  --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --radio-borde: 0.5rem; /* 8px */
+}
+
+/* --- Estilos Base --- */
+
+/* Scroll Suave para los links de ancla (ej: href="#about") */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Aplica la fuente importada. Si no carga, usa las fuentes de sistema. */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--color-texto-principal);
+  background-color: var(--color-fondo-claro);
+  
+  /* Evita que el contenido "salte" cuando el header se fija en la parte superior */
+  padding-top: 70px; 
+}
+
+/* --- Clases Reutilizables --- */
+
+/* Define la apariencia base de todas tus secciones */
+.section {
+  padding-top: 5rem;    /* 80px */
+  padding-bottom: 5rem; /* 80px */
+}
+
+.section-light {
+  background-color: var(--color-fondo-claro);
+}
+
+.section-dark {
+  background-color: var(--color-fondo-oscuro);
+  border-top: 1px solid var(--color-borde);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+/* Una clase de tarjeta personalizada que puedes aplicar a "experience", "skills", etc. */
+.app-card {
+  background-color: var(--color-fondo-claro);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-card);
+  padding: 1.5rem; /* 24px */
+  height: 100%; /* Hace que las tarjetas en una fila tengan la misma altura */
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover sutil para todas las tarjetas */
+.app-card:hover {
+  transform: translateY(-5px); /* Eleva la tarjeta ligeramente */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
