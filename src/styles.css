@@ -3,68 +3,83 @@
 
 /* --- Variables Globales de Diseño --- */
 :root {
-  /* Paleta de Colores Profesional */
-  --color-primario: #0d6efd;       /* Azul de Bootstrap */
-  --color-secundario: #6c757d;    /* Gris secundario */
-  --color-texto-principal: #212529;  /* Negro suave (Bootstrap) */
-  --color-texto-claro: #FFFFFF;
+  --color-primario: #0d6efd;
+  --color-secundario: #6c757d;
+  --color-texto-principal: #212529; /* Texto para fondos claros */
+  --color-texto-claro: #f8f9fa;      /* Texto para fondos oscuros */
   --color-fondo-claro: #FFFFFF;
-  --color-fondo-oscuro: #F8F9FA;   /* Un gris muy claro (Bootstrap) */
-  --color-borde: #DEE2E6;          /* Gris de borde (Bootstrap) */
-
-  /* Estilo de Tarjetas y Botones */
+  --color-fondo-oscuro: #212529;     /* Fondo oscuro (Bootstrap Dark) */
+  --color-borde: #DEE2E6;
   --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.05);
   --radio-borde: 0.5rem; /* 8px */
 }
 
 /* --- Estilos Base --- */
-
-/* Scroll Suave para los links de ancla (ej: href="#about") */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  /* Aplica la fuente importada. Si no carga, usa las fuentes de sistema. */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--color-texto-principal);
   background-color: var(--color-fondo-claro);
-  
-  /* Evita que el contenido "salte" cuando el header se fija en la parte superior */
   padding-top: 70px; 
 }
 
 /* --- Clases Reutilizables --- */
-
-/* Define la apariencia base de todas tus secciones */
 .section {
-  padding-top: 5rem;    /* 80px */
-  padding-bottom: 5rem; /* 80px */
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
+/* --- SECCIÓN CLARA (Fondo Blanco) --- */
 .section-light {
   background-color: var(--color-fondo-claro);
 }
 
-.section-dark {
-  background-color: var(--color-fondo-oscuro);
-  border-top: 1px solid var(--color-borde);
-  border-bottom: 1px solid var(--color-borde);
-}
-
-/* Una clase de tarjeta personalizada que puedes aplicar a "experience", "skills", etc. */
-.app-card {
+.section-light .app-card {
   background-color: var(--color-fondo-claro);
   border: 1px solid var(--color-borde);
-  border-radius: var(--radio-borde);
   box-shadow: var(--sombra-card);
-  padding: 1.5rem; /* 24px */
-  height: 100%; /* Hace que las tarjetas en una fila tengan la misma altura */
+  padding: 1.5rem;
+  height: 100%;
   transition: all 0.3s ease;
+}
+
+/* --- SECCIÓN OSCURA (Fondo Oscuro) --- */
+.section-dark {
+  background-color: var(--color-fondo-oscuro);
+  color: var(--color-texto-claro); /* <-- TEXTO CLARO POR DEFECTO */
+  border-top: 1px solid #343a40;
+  border-bottom: 1px solid #343a40;
+}
+
+/* Títulos en sección oscura deben ser claros */
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark h5 {
+  color: var(--color-texto-claro);
+}
+
+/* Tarjetas en sección oscura deben ser oscuras */
+.section-dark .app-card {
+  background-color: #343a40; /* Un gris un poco más claro que el fondo */
+  border: 1px solid #495057;
+  box-shadow: var(--sombra-card);
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  color: var(--color-texto-claro); /* <-- TEXTO CLARO DENTRO DE LA TARJETA */
+}
+
+/* Clases de utilidad de Bootstrap que necesitan anulación */
+.section-dark .text-muted {
+  color: #adb5bd !important; /* Un gris más claro para 'muted' */
 }
 
 /* Efecto hover sutil para todas las tarjetas */
 .app-card:hover {
-  transform: translateY(-5px); /* Eleva la tarjeta ligeramente */
+  transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
