@@ -18,18 +18,17 @@
 }
 
 .info-card-logo {
-  height: 100px;         /* El alto que tenías en tu HTML original */
+  height: 90px;         /* El alto que tenías en tu HTML original */
   width: auto;           /* Que el ancho sea automático */
-  max-width: 180px;      /* Un límite para que no se agrande demasiado */
+  max-width: 110px;      /* Un límite para que no se agrande demasiado */
   object-fit: contain;   /* Para que la imagen no se deforme */
   
-  /* Equivalente a 'd-block' y 'mx-auto' de Bootstrap */
   display: block;
   margin-left: auto;
   margin-right: auto;
   
-  /* Equivalente a 'mb-3' de Bootstrap */
   margin-bottom: 1rem; 
+  padding: 0 10px;
 }
 
 .info-card .position,

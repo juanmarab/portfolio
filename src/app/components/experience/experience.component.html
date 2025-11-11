@@ -1,32 +1,20 @@
-<section class="experience-section">
-    <div class="container">
-      <h2 class="text-center text-warning mb-4">Work Experience</h2>
-      <div class="experience-grid">
-        <div class="experience-card">
-          <img src="https://media.licdn.com/dms/image/v2/D4D0BAQFUGqLt38qgNQ/company-logo_200_200/company-logo_200_200/0/1694700941219/kinamic_logo?e=2147483647&v=beta&t=Kvtxyg65LvnuqhsLpZXjRhUYu6nZ5-dhKAK-J1KeoUk" alt="Kinamic">
-          <h3>Kinamic Technologies</h3>
-          <p class="position">Full Stack Developer</p>
-          <p class="dates">(6-2022 to 12-2024)</p>
-          <ul>
-            <li>Developed and maintained web applications for a Fintech client, delivering robust and scalable solutions.</li>
-            <li>Resolved complex software issues, ensuring the seamless operation of the platform and enhancing user experience.</li>
-            <li>Collaborated with a cross-functional team to implement front-end features using Angular and back-end services with .NET Core.</li>
-            <li>Managed deployments and cloud infrastructure, leveraging AWS to ensure high availability and performance.</li>
-            <li>Contributed to process improvements by automating workflows and optimizing development practices.</li>
-          </ul>                
-        </div>
-        <div class="experience-card">
-          <img src="https://discover.give.do/static/img/logos/19WJ/9aad65c4-4ada-437d-a056-cd099c1e88ef.png" alt="TCS">
-          <h3>Tata Consultancy Services</h3>
-          <p class="position">Junior Trainee</p>
-          <p class="dates">(6-2021 to 10-2021)</p>
-          <ul>
-            <li>Worked as part of a globally distributed team across Mexico, India, and other regions, contributing to a large-scale retail project.</li>
-            <li>Acquired hands-on experience in Java Spring Boot, building and enhancing RESTful APIs for backend services.</li>
-            <li>Gained a deep understanding of the retail business domain while collaborating with The Home Depot team.</li>
-            <li>Strengthened communication and teamwork skills, enabling efficient collaboration across different cultures and time zones.</li>
-          </ul>                
-        </div>
+<section class="experience-section"> <div class="container">
+    <h2 class="text-center text-warning mb-4">Work Experience</h2>
+    
+    <div class="row g-4 justify-content-center">
+      
+      <div *ngFor="let job of workHistory" class="col-12 col-lg-10">
+        
+        <app-info-card
+            [logo]="job.logo"
+            [title]="job.title"
+            [subtitle]="job.subtitle"
+            [dates]="job.dates"
+            [points]="job.points"
+            [mode]="'light'"> </app-info-card>
+
       </div>
+      
     </div>
-  </section>
+  </div>
+</section>

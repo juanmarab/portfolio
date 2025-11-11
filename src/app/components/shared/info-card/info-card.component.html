@@ -1,6 +1,8 @@
 <div class="info-card">
   
-  <img *ngIf="logo" [src]="logo" [alt]="title + ' logo'" class="info-card-logo">
+  <div *ngIf="logo" class="info-card-logo-wrapper">
+    <img [src]="logo" [alt]="title + ' logo'" class="info-card-logo">
+  </div>
   
   <h3>{{ title }}</h3>
   <p class="position">{{ subtitle + ' '+ dates}}</p>
