@@ -1,0 +1,22 @@
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="text-center mb-5">Projects</h2>
+    
+    <div class="row g-4 justify-content-center">
+      
+      <div *ngFor="let proj of projectsHistory" class="col-12 col-lg-10">
+        
+        <app-info-card
+            [logo]="proj.logo"
+            [title]="proj.title"
+            [subtitle]="proj.subtitle"
+            [dates]="proj.dates"
+            [points]="proj.points"
+            [mode]="'light'"> 
+        </app-info-card>
+
+      </div>
+      
+    </div>
+  </div>
+</section>

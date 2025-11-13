@@ -6,6 +6,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { EducationComponent } from './components/education/education.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { AboutComponent } from './components/about/about.component';
+import { ProjectsComponent } from "./components/projects/projects.component";
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { AboutComponent } from './components/about/about.component';
     EducationComponent,
     SkillsComponent,
     AboutComponent,
-  ]
+    ProjectsComponent
+]
 })
 export class AppComponent {}
