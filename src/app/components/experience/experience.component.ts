@@ -18,11 +18,12 @@ export class ExperienceComponent {
       title: 'Kinamic Technologies',
       subtitle: 'Full Stack Developer',
       dates: '(6-2022 to 12-2024)',
-      points: [
+     points: [
         'Engineered scalable, high-availability web applications for a key Fintech client using .NET Core and Angular.',
         'Optimized application performance by refactoring complex backend queries and significantly reducing API response times.',
         'Automated CI/CD pipelines and managed cloud infrastructure in AWS, ensuring high uptime and minimizing manual deployment failures.',
         'Led the integration of front-end features in Angular, collaborating with a cross-functional team to deliver a seamless user experience.',
+        'Owned the end-to-end testing lifecycle, implementing both unit and functional tests to ensure robust application quality and stability.'
       ]
     },
     {
