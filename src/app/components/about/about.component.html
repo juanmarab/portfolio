@@ -1,37 +1,54 @@
+<section class="hero-section py-5 text-center">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="text-center">
-        <img 
-          src="assets/images/professional-photo.jpg"       
-          alt="Juan Marab - Perfil" 
-          class="img-fluid rounded-circle mb-4" 
-          style="width: 150px; height: 150px; object-fit: cover;">
-            <h2 class="mb-4">About Me</h2>
+      <div class="col-lg-10">
+        <h1 class="display-4 fw-bold mb-3">
+          Full-Stack Developer | .NET & Angular Specialist
+        </h1>
+        
+        <p class="lead text-muted mb-4 mx-auto" style="max-width: 800px;">
+          Building scalable web applications and automating workflows to solve complex business problems. 
+          3+ years of experience delivering efficient code and user-centric solutions.
+        </p>
+
+        <div class="d-flex justify-content-center gap-3 mb-5">
+          <a href="assets/resume Juan Manuel Rabunal (4).pdf" target="_blank" class="btn btn-outline-dark btn-lg px-4">Download Resume</a>
         </div>
-        
-        <app-info-card [mode]="'light'">
-        
-          <p class="lead"> Hi! I’m a Systems Engineering student and Full Stack Developer with 2+ years of experience building fintech web applications using .NET (C#) and Angular.
-          </p>
-          <p>
-            Passionate about problem-solving and clean code, I thrive in collaborative environments where I can contribute to impactful projects while continuously learning.
-          </p>
-    
-          <h3 class="h5 mt-4">My strengths:</h3>
-          <ul>
-            <li> Backend Development: C#, .NET Core, Entity Framework, REST APIs</li>
-            <li> Frontend Development: Angular, TypeScript, responsive UI/UX</li>
-            <li> Agile Methodologies: Scrum, Clean Architecture, Teamwork</li>
-          </ul>
-    
-          <p class="mt-4"> 
-            Always eager for new challenges, I’m looking to expand my skills in cloud technologies, microservices, and cutting-edge frameworks.
-          </p>
-          <em class="d-block text-center mt-4">Let’s connect and build something great!</em>
-
-        </app-info-card>
-
       </div>
     </div>
   </div>
+</section>
+
+<hr class="my-5" style="opacity: 0.1;"> <div class="container mb-5" id="about">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      
+      <div class="text-center">
+        <img 
+          src="assets/images/professional-photo.jpg"       
+          alt="Juan Marab - Professional Profile" 
+          class="img-fluid rounded-circle mb-4 shadow" 
+          style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #fff;">
+        
+        <h2 class="mb-4 fw-bold">Beyond the Code</h2>
+      </div>
+      
+      <app-info-card [mode]="'light'">
+      
+        <p class="lead">
+          I am a Software Developer with over 3 years of experience specializing in the .NET ecosystem and modern frontend frameworks like Angular. My focus is not just on writing code, but on engineering solutions that optimize performance and drive business value.
+        </p>
+
+        <p>
+          Currently, I am leveraging tools like <strong>n8n and Make</strong> to build automations that reduce manual friction, while finalizing my academic thesis on AI-driven security systems. I thrive in collaborative environments where I can tackle challenging technical hurdles and deliver robust software architectures.
+        </p>
+  
+        <div class="text-center mt-4">
+            <p class="fw-bold text-primary">Let's build something great together.</p>
+        </div>
+
+      </app-info-card>
+
+    </div>
+  </div>
+</div>
