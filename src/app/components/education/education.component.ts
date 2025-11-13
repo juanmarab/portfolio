@@ -13,15 +13,14 @@ import { CommonModule } from '@angular/common';
 })
 export class EducationComponent {
 
-  // 1. Define tu array de datos
   educationHistory = [
     {
       logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMh6i2GJOjC6DpnfI0rju0zGL9dVVsNH2BGA&s',
       title: 'Bachelor in Systems',
-      subtitle: 'University ORT Uruguay',
-      dates: '(2019 - Present)',
+      subtitle: 'University ORT, Uruguay',
+      dates: '(2019 - 2026)',
       points: [
-        'Currently pursuing a Bachelor\'s degree in Systems with a focus on software development and technology.',
+        'Currently finishing a Bachelor\'s degree in Systems with a focus on software development and technology.',
         'Enhanced problem-solving skills through practical and theoretical projects.',
         'Gained experience in teamwork and collaboration for academic and professional growth.'
       ]
@@ -33,7 +32,7 @@ export class EducationComponent {
       dates: '(2015 - 2018)',
       points: [
         'Completed a technical program focused on foundational computing concepts and programming.',
-        'Acquired essential skills in software development, algorithms, and data structures.',
+        'Acquired essential skills in software development,hardware, algorithms, and data structures.',
         'Developed strong technical abilities, preparing for higher education in the field.'
       ]
     }
