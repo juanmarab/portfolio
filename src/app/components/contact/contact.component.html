@@ -1,37 +1,29 @@
-<!-- No hay <section> exterior, ya que app.component.html la maneja -->
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-8">
 
       <h2 class="text-center mb-5">Get In Touch</h2>
       
-      <!-- 
-        1. Cambiamos (submit) por (ngSubmit) y le pasamos la referencia del form.
-        2. #contactForm="ngForm" crea la referencia.
-      -->
       <form (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm">
         
-        <!-- Name -->
-        <div class="mb-3"> <!-- 3. Reemplazamos 'form-group' por 'mb-3' -->
+        <div class="mb-3">
           <label for="name" class="form-label">
-            <i class="fas fa-user me-2"></i> Name <!-- 'me-2' añade margen -->
+            <i class="fas fa-user me-2"></i> Name
           </label>
           <input type="text" id="name" name="name" 
                  class="form-control" placeholder="Enter your name" 
-                 required ngModel #name="ngModel"> <!-- 4. Añadimos 'form-control', 'ngModel' y 'required' -->
+                 required ngModel #name="ngModel">
         </div>
         
-        <!-- Email -->
         <div class="mb-3">
           <label for="email" class="form-label">
             <i class="fas fa-envelope me-2"></i> Email
           </label>
           <input type="email" id="email" name="email" 
                  class="form-control" placeholder="Enter your email" 
-                 required email ngModel #email="ngModel"> <!-- 5. Añadimos validación 'email' -->
+                 required email ngModel #email="ngModel">
         </div>
         
-        <!-- Message -->
         <div class="mb-3">
           <label for="message" class="form-label">
             <i class="fas fa-comment me-2"></i> Message
