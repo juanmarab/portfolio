@@ -19,11 +19,10 @@ export class ExperienceComponent {
       subtitle: 'Full Stack Developer',
       dates: '(6-2022 to 12-2024)',
       points: [
-        'Developed and maintained web applications for a Fintech client, delivering robust and scalable solutions.',
-        'Resolved complex software issues, ensuring the seamless operation of the platform and enhancing user experience.',
-        'Collaborated with a cross-functional team to implement front-end features using Angular and back-end services with .NET Core.',
-        'Managed deployments and cloud infrastructure, leveraging AWS to ensure high availability and performance.',
-        'Contributed to process improvements by automating workflows and optimizing development practices.'
+        'Engineered scalable, high-availability web applications for a key Fintech client using .NET Core and Angular.',
+        'Optimized application performance by refactoring complex backend queries and significantly reducing API response times.',
+        'Automated CI/CD pipelines and managed cloud infrastructure in AWS, ensuring high uptime and minimizing manual deployment failures.',
+        'Led the integration of front-end features in Angular, collaborating with a cross-functional team to deliver a seamless user experience.',
       ]
     },
     {
@@ -32,10 +31,9 @@ export class ExperienceComponent {
       subtitle: 'Junior Trainee',
       dates: '(6-2021 to 10-2021)',
       points: [
-        'Worked as part of a globally distributed team across Mexico, India, and other regions, contributing to a large-scale retail project.',
-        'Acquired hands-on experience in Java Spring Boot, building and enhancing RESTful APIs for backend services.',
-        'Gained a deep understanding of the retail business domain while collaborating with The Home Depot team.',
-        'Strengthened communication and teamwork skills, enabling efficient collaboration across different cultures and time zones.'
+        'Collaborated effectively within a globally distributed Agile team (Mexico, India) to deliver and merge new features on schedule.',
+        'Translated complex retail business requirements from The Home Depot team into precise technical specifications and actionable code.',
+        'Identified and resolved 20+ client-reported bugs in the legacy Java codebase, significantly improving system stability.'
       ]
     }
   ];
