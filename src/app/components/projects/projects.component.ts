@@ -31,9 +31,9 @@ export class ProjectsComponent {
       subtitle: 'Automated Trading Analysis Tool',
       dates: '(Personal Project)',
       points: [
-        '<strong>The Challenge:</strong> Needed a real-time system to efficiently track leveraged trading positions (ETH/SOL).',
-        '<strong>The Solution:</strong> Built a custom automation workflow using n8n to monitor market indicators and log trade performance automatically.',
-        '<strong>Tech Stack:</strong> make, Webhooks, JSON, Crypto APIs.'
+        'The Challenge:Needed a real-time system to efficiently track leveraged trading positions (ETH/SOL).',
+        'The Solution:Built a custom automation workflow using n8n to monitor market indicators and log trade performance automatically.',
+        'Tech Stack: Make, Webhooks, JSON, Crypto APIs.'
       ]
     },
     {
@@ -42,9 +42,9 @@ export class ProjectsComponent {
       subtitle: 'Modern Angular Portfolio Architecture',
       dates: '(Ongoing Project)',
       points: [
-        '<strong>The Challenge:</strong> Building a professional, scalable, and maintainable personal brand platform from scratch.',
-        '<strong>The Solution:</strong> Engineered a component-based application using Angular\'s standalone components and a reusable InfoCard for data.',
-        '<strong>Tech Stack:</strong> Angular, TypeScript, Bootstrap, GitHub Pages.'
+        'The Challenge: Building a professional, scalable, and maintainable personal brand platform from scratch.',
+        'The Solution: Engineered a component-based application using Angular\'s standalone components and a reusable InfoCard for data.',
+        'Tech Stack: Angular, TypeScript, Bootstrap, GitHub Pages.'
       ]
     }
   ];

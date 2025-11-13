@@ -10,7 +10,4 @@
   background-color: transparent;
   color: white;
   border-color: white;
-  
-  /* Bootstrap añade 'opacity: 0.65' por defecto a los 'disabled',
-     lo cual es perfecto para mostrar que no está activo. */
 }
