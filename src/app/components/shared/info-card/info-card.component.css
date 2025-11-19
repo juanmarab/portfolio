@@ -1,3 +1,6 @@
+/* =========================================
+   ESTILOS BASE DE LA TARJETA
+   ========================================= */
 .info-card {
   background-color: #fff;
   color: #2c2c54;
@@ -8,8 +11,13 @@
   width: 90%;
   max-width: 800px;
   margin: 0 auto;
+  
+  /* Flexbox para organizar mejor el flujo vertical si es necesario */
+  display: flex;
+  flex-direction: column;
 }
 
+/* Título */
 .info-card h3 {
   margin-bottom: 10px;
   font-size: 1.5rem;
@@ -17,46 +25,122 @@
   text-align: center;
 }
 
+/* Logo */
 .info-card-logo {
-  height: 90px;         /* El alto que tenías en tu HTML original */
-  width: auto;           /* Que el ancho sea automático */
-  max-width: 110px;      /* Un límite para que no se agrande demasiado */
-  object-fit: contain;   /* Para que la imagen no se deforme */
+  height: 90px;          /* Tu alto original */
+  width: auto;           /* Ancho automático */
+  max-width: 110px;      /* Límite de ancho */
+  object-fit: contain;   /* Evita deformación */
   
   display: block;
   margin-left: auto;
   margin-right: auto;
-  
   margin-bottom: 1rem; 
   padding: 0 10px;
 }
 
+/* Textos secundarios */
 .info-card .position,
 .info-card .dates {
   text-align: center;
 }
 
+/* Lista de puntos */
 .info-card ul {
   padding-left: 20px;
   margin-top: 10px;
+  /* Asegura que la lista no pegue con el botón si hay muchos items */
+  margin-bottom: 10px; 
 }
 
-/* Media Queries (las mismas que tenías) */
+
+/* =========================================
+   NUEVO: ESTILOS PARA EL BOTÓN DE ENLACE
+   ========================================= */
+
+/* Contenedor del botón (para centrarlo y dar margen) */
+.info-card-actions {
+  margin-top: auto; /* Empuja el botón al final si usas flex en el padre, o simplemente separa */
+  padding-top: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+/* El botón en sí */
+.info-card-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: #2c2c54; /* Mismo color base que tu texto */
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 25px; /* Bordes más redondeados (pill shape) queda moderno */
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 2px solid transparent; /* Prepara borde para hover o dark mode */
+}
+
+/* Hover del botón */
+.info-card-btn:hover {
+  background-color: #40407a; /* Un tono más claro/violeta */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Click del botón */
+.info-card-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   COMPATIBILIDAD CON MODO OSCURO
+   ========================================= */
+
+/* Estilos específicos para cuando la tarjeta es oscura */
+.info-card--dark {
+  background-color: #2c2c54; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+}
+
+.info-card--dark h3 {
+  color: #ecf0f1; /* Título claro */
+}
+
+/* Invertir el botón en modo oscuro para que resalte */
+.info-card--dark .info-card-btn {
+  background-color: #ffffff;
+  color: #2c2c54;
+}
+
+.info-card--dark .info-card-btn:hover {
+  background-color: #e0e0e0;
+}
+
+
+/* =========================================
+   MEDIA QUERIES
+   ========================================= */
+
+/* Móvil */
 @media (max-width: 767px) {
   .info-card h3,
   .info-card .position,
   .info-card .dates {
     text-align: center;
   }
-  .info-card img {
+  
+  .info-card-logo {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
+/* Hover en Desktop (Solo si el dispositivo soporta hover) */
 @media (hover: hover) {
   .info-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.02); /* Reduje un poco el 1.05, a veces es muy brusco */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   }
 }

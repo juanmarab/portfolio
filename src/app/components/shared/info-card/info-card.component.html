@@ -1,5 +1,4 @@
-<div class="info-card" 
-     [ngClass]="{ 'info-card--dark': mode === 'dark' }">
+<div class="info-card" [ngClass]="{ 'info-card--dark': mode === 'dark' }">
 
   <div *ngIf="title; else freeContentMode">
     
@@ -10,9 +9,20 @@
     <h3>{{ title }}</h3>
     <p class="position">{{ subtitle }}</p>
     <p class="dates">{{ dates }}</p>
+    
     <ul *ngIf="points.length > 0">
       <li *ngFor="let point of points">{{ point }}</li>
     </ul>
+
+    <div *ngIf="linkUrl" class="info-card-actions">
+      <a [href]="linkUrl" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="info-card-btn">
+         {{ linkText }}
+      </a>
+    </div>
+
   </div>
 
   <ng-template #freeContentMode>

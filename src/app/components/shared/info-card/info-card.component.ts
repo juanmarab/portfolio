@@ -9,11 +9,13 @@ import { Component, Input } from '@angular/core';
 })
 export class InfoCardComponent {
 
-  @Input() logo?: string; // URL de la imagen (opcional)
-  @Input() title: string = ''; // Título (ej. "Kinamic Technologies")
-  @Input() subtitle: string = ''; // Subtítulo (ej. "Full Stack Developer")
-  @Input() dates: string = ''; // Rango de fechas
-  @Input() points: string[] = []; // Array de strings para los bullet points
+  @Input() logo?: string;
+  @Input() title: string = '';
+  @Input() subtitle: string = '';
+  @Input() dates: string = '';
+  @Input() points: string[] = [];
   @Input() mode: 'light' | 'dark' = 'light';
+  @Input() linkUrl?: string;
+  @Input() linkText: string = 'Open the repository';
   constructor() { }
 }
