@@ -1,73 +1,126 @@
-.header-nav {
+/* --- ESTILOS BASE (Desktop) --- */
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #1c1c1c;
+  background-color: #1c1c1c; /* Tu fondo oscuro */
   color: #fff;
-  
-  /* Layout */
-  display: flex;
-  align-items: center;
-  /* gap: define el espacio constante entre botones, reemplaza margenes */
-  gap: 15px; 
-  
-  /* Scroll settings */
-  overflow-x: auto;       /* Permite scroll horizontal */
-  white-space: nowrap;    /* Evita saltos de línea */
-  flex-wrap: nowrap;      /* Fuerza una sola línea */
-  
-  /* UX */
-  padding: 15px 20px;     /* Un poco más de aire vertical */
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  
-  /* Importante para suavidad en iPhone (iOS) */
-  -webkit-overflow-scrolling: touch; 
-  
-  /* Opcional: Centrar en desktop si sobran espacios, 
-     pero 'flex-start' es más seguro para el scroll */
-  justify-content: flex-start; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  height: 60px; /* Altura fija para evitar saltos */
 }
 
-/* Ocultar scrollbar visualmente pero mantener funcionalidad */
-.header-nav::-webkit-scrollbar {
-  display: none; 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between; /* Logo a izq, menú a der */
+  align-items: center;
 }
 
-.header-nav button {
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* Menú en Desktop: Fila horizontal */
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu button {
   background: none;
   border: none;
-  color: #fff;
+  color: #ccc;
   font-size: 1rem;
   cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-
-  /* 🔥 EL CAMBIO CRUCIAL ESTÁ AQUÍ ABAJO 🔥 */
-  flex-shrink: 0;  /* 0 = "No te encojas nunca". Mantiene su ancho real */
-  
-  /* Quitamos min-width fijos para que el botón se adapte al texto */
-  width: auto;     
+  transition: color 0.3s;
+  font-weight: 500;
 }
 
-.header-nav button:hover {
-  background-color: #9b59b6;
+.nav-menu button:hover {
   color: #fff;
 }
 
-/* Media query para móvil */
-@media (max-width: 600px) {
-  .header-nav {
-    /* En móvil quitamos el padding excesivo de los lados 
-       para aprovechar la pantalla */
-    padding: 15px 10px; 
-    gap: 10px; /* Reducimos un poco el espacio entre botones */
+/* Ocultar botón hamburguesa en desktop */
+.hamburger-btn {
+  display: none;
+}
+
+
+/* --- ESTILOS MOBILE (Max width 768px) --- */
+@media (max-width: 768px) {
+
+  /* Mostrar botón hamburguesa */
+  .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001; /* Por encima del menú desplegable */
   }
 
-  .header-nav button {
-    font-size: 0.9rem; /* Un pelín más pequeño pero legible */
-    padding: 8px 12px; /* Padding cómodo para el dedo */
+  .hamburger-btn .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+
+  /* Animación del icono a X cuando está activo */
+  .hamburger-btn.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger-btn.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-btn.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /* Transformar el menú en un panel vertical */
+  .nav-menu {
+    position: fixed;
+    top: 60px; /* Justo debajo del header */
+    left: 0;
+    width: 100%;
+    background-color: #1c1c1c;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    border-top: 1px solid #333;
+    
+    /* Ocultarlo por defecto */
+    max-height: 0;
+    overflow: hidden; 
+    transition: max-height 0.4s ease-in-out; /* Animación suave de despliegue */
+  }
+
+  /* Clase que se activa al abrir */
+  .nav-menu.open {
+    max-height: 400px; /* Altura suficiente para tus 6 items */
+    box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+  }
+
+  .nav-menu button {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #2a2a2a;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .nav-menu button:hover {
+    background-color: #2a2a2a;
   }
 }
