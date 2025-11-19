@@ -5,20 +5,34 @@
   width: 100%;
   background-color: #1c1c1c;
   color: #fff;
-  padding: 10px 20px;
+  
+  /* Layout */
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  gap: 10px;
-  overflow-x: auto; /* Permite scroll horizontal si es necesario */
-  white-space: nowrap;
+  /* gap: define el espacio constante entre botones, reemplaza margenes */
+  gap: 15px; 
+  
+  /* Scroll settings */
+  overflow-x: auto;       /* Permite scroll horizontal */
+  white-space: nowrap;    /* Evita saltos de línea */
+  flex-wrap: nowrap;      /* Fuerza una sola línea */
+  
+  /* UX */
+  padding: 15px 20px;     /* Un poco más de aire vertical */
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  flex-wrap: nowrap; /* No permite el salto de línea */
+  
+  /* Importante para suavidad en iPhone (iOS) */
+  -webkit-overflow-scrolling: touch; 
+  
+  /* Opcional: Centrar en desktop si sobran espacios, 
+     pero 'flex-start' es más seguro para el scroll */
+  justify-content: flex-start; 
 }
 
+/* Ocultar scrollbar visualmente pero mantener funcionalidad */
 .header-nav::-webkit-scrollbar {
-  display: none; /* Opcional: oculta la scrollbar en móviles */
+  display: none; 
 }
 
 .header-nav button {
@@ -27,24 +41,33 @@
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
-  padding: 8px 12px; /* Reducir el padding */
+  padding: 8px 16px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
-  flex-shrink: 1; /* Permite que los botones se ajusten en tamaño si es necesario */
-  min-width: 80px; /* Un ancho mínimo para los botones */
-  white-space: nowrap; /* Evitar que el texto se rompa a la siguiente línea */
-}
 
-/* 👇 Ajuste para pantallas más pequeñas */
-@media (max-width: 600px) {
-  .header-nav button {
-    font-size: 0.8rem; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
-    padding: 4px 6px; /* Ajusta el padding para mayor espacio */
-    min-width: 50px; /* Reducir el ancho mínimo de los botones */
-  }
+  /* 🔥 EL CAMBIO CRUCIAL ESTÁ AQUÍ ABAJO 🔥 */
+  flex-shrink: 0;  /* 0 = "No te encojas nunca". Mantiene su ancho real */
+  
+  /* Quitamos min-width fijos para que el botón se adapte al texto */
+  width: auto;     
 }
 
 .header-nav button:hover {
   background-color: #9b59b6;
   color: #fff;
+}
+
+/* Media query para móvil */
+@media (max-width: 600px) {
+  .header-nav {
+    /* En móvil quitamos el padding excesivo de los lados 
+       para aprovechar la pantalla */
+    padding: 15px 10px; 
+    gap: 10px; /* Reducimos un poco el espacio entre botones */
+  }
+
+  .header-nav button {
+    font-size: 0.9rem; /* Un pelín más pequeño pero legible */
+    padding: 8px 12px; /* Padding cómodo para el dedo */
+  }
 }
