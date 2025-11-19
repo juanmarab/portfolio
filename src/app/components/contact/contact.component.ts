@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import emailjs from 'emailjs-com';
-import { FormsModule, NgForm } from '@angular/forms'; // <-- 1. Importar FormsModule y NgForm
-import { CommonModule } from '@angular/common'; // <-- 2. Importar CommonModule para *ngIf
+import { FormsModule, NgForm } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { CalendlyWidgetComponent } from '../shared/calendly-widget/calendly-widget.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [
-    CommonModule, // <-- 4. Añadir CommonModule
-    FormsModule   // <-- 5. Añadir FormsModule
+    CommonModule,
+    FormsModule,
+    CalendlyWidgetComponent
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
@@ -25,16 +27,15 @@ export class ContactComponent {
     const templateID = 'portfolio_contact'; // Tu Template ID
     const publicKey = 'rf6aulzAHdwFL8Wdw'; // Tu Public Key
 
-    // 8. Enviar 'contactForm.value' es más limpio y funciona perfecto
     emailjs.send(serviceID, templateID, contactForm.value, publicKey)
       .then(response => {
-        console.log('Correo enviado exitosamente:', response);
-        alert('Correo enviado exitosamente'); // <-- Reemplazar 'alert' con un modal es un buen próximo paso
-        contactForm.reset(); // <-- Resetea el formulario
+        console.log('Email send successfully:', response);
+        alert('Email send successfully'); // <-- Reemplazar 'alert' con un modal es un buen próximo paso
+        contactForm.reset();
       })
       .catch(error => {
-        console.error('Error al enviar correo:', error);
-        alert('Error al enviar el correo');
+        console.error('Error:', error);
+        alert('Error');
       });
   }
 }
