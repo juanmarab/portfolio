@@ -1,59 +1,43 @@
-# Portfolio
+# 👨‍💻 Juanma Rab - Personal Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)
 
-## Development server
+> **Welcome.** This project is a Single Page Application (SPA) built to showcase my professional experience, software projects, and technical skills.
 
-To start a local development server, run:
+🔗 **Live Demo:** [https://juanmarab.github.io/portfolio/](https://juanmarab.github.io/portfolio/)
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Tech Stack
 
-## Code scaffolding
+This portfolio is built from scratch using modern web development practices:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* **Framework:** [Angular](https://angular.io/) (Component-Based Architecture).
+* **Language:** TypeScript.
+* **Styling:** Native CSS3 (Responsive Design, Flexbox, Custom Properties).
+* **Hosting/CI:** GitHub Pages.
 
-```bash
-ng generate component component-name
-```
+## ✨ Key Features
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+* **Responsive Design:** Fully adaptive layout for mobile, tablet, and desktop devices.
+* **Modular Components:** Uses reusable components (e.g., `InfoCardComponent`) to display experiences and projects dynamically.
+* **Dark/Light Theme:** Built-in support for visual themes.
+* **Conditional Rendering:** Dynamic UI elements, such as action buttons that only appear when external links are provided.
+* **Clean Routing:** Smooth navigation using Angular Router.
 
-```bash
-ng generate --help
-```
+## 📂 Project Structure
 
-## Building
+The codebase is organized for scalability and maintainability:
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```text
+src/
+├── app/
+│   ├── components/      # Reusable UI elements (InfoCard, Navbar, etc.)
+│   ├── pages/           # Main views (Home, Projects, Contact)
+│   ├── services/        # Data handling and state management
+│   └── shared/          # Models and interfaces
+├── assets/              # Static resources (images, icons)
+└── styles.css           # Global styles and CSS variables
