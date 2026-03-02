@@ -20,8 +20,8 @@ export class ProjectsComponent {
       subtitle: 'Automated Trading Analysis Tool',
       dates: '(Personal Project)',
       points: [
-        'The Challenge:Needed a real-time system to efficiently track leveraged trading positions (ETH/SOL).',
-        'The Solution:Built a custom automation workflow using n8n to monitor market indicators and log trade performance automatically.',
+        'The Challenge:Needed a real-time system to efficiently track leveraged trading positions.',
+        'The Solution:Built a custom automation workflow using make to monitor market indicators and log trade performance automatically.',
         'Tech Stack: Make, Webhooks, JSON, Crypto APIs.'
       ],
       linkUrl:"https://github.com/juanmarab/crypto-trading-bot.git",
@@ -39,16 +39,18 @@ export class ProjectsComponent {
       linkUrl:"https://github.com/juanmarab/portfolio.git"
     },
     {
-      logo: 'https://www.shutterstock.com/image-vector/cyber-security-ai-intelligence-protection-600nw-2481979119.jpg',
-      title: 'Guard-IA (Thesis Project)',
-      subtitle: 'AI-Powered Fraud Detection System',
-      dates: '(2025 - Present)',
-      points: [
-        'The Challenge: Mitigating the rising threat of phishing and email spoofing for corporate environments.',
-        'The Solution: Developed a comprehensive detection system (sponsored by Strike Security) focusing on real-time threat analysis.',
-        'Tech Stack: .NET, Angular, Python, AI Integration.'
-      ]
-    }
+  logo: 'https://www.shutterstock.com/image-vector/cyber-security-ai-intelligence-protection-600nw-2481979119.jpg',
+  title: 'Guard-IA (Capstone Project - Universidad ORT)',
+  subtitle: 'AI-Powered Anomaly Detection & Digital Fraud Prevention System',
+  dates: '(2025-2026)',
+  points: [
+    'The Challenge: Mitigating the rising threat of AI-driven phishing and sophisticated automated attacks targeting corporate email environments.',
+    'The Solution: Developed a high-performance security middleware (sponsored by Strike Security) integrated with Google Workspace, featuring a hybrid detection pipeline (Heuristics + Machine Learning + LLM) for real-time threat analysis.',
+    'Performance & Precision: Achieved a 99.57% Recall rate using a fine-tuned DistilBERT model with an inference latency of only 18ms, complemented by human-readable explainability via Claude Opus 4.5.',
+    'Tech Stack: Vue 3 (Composition API), FastAPI (Python), DistilBERT, Claude Opus, PostgreSQL (Neon), Docker, and Cloud Run.'
+  ], 
+  linkUrl:"https://github.com/sogliano/guardia"
+  }
   ];
 
   constructor() { }
