@@ -26,7 +26,7 @@ export class ExperienceService {
                         'Lideré el desarrollo e integración de los módulos front-end, mejorando significativamente la experiencia de usuario (UX/UI).',
                         'Implementé y mantuve una cobertura exhaustiva de pruebas unitarias e integrales para garantizar la resiliencia del software.'
                     ],
-                    technologies: ['C# .NET', 'Angular', 'AWS', 'SQL Server', 'CI/CD']
+                    technologies: ['C# .NET', 'Angular', 'AWS', 'SQL Server', 'CI/CD', 'Docker', 'Agile/Scrum']
                 },
                 {
                     id: 'tcs',
@@ -39,7 +39,7 @@ export class ExperienceService {
                         'Traduje requerimientos complejos de negocio del cliente The Home Depot en especificaciones técnicas precisas y código funcional.',
                         'Identifiqué la causa raíz y resolví más de 20 incidencias críticas reportadas sobre una base de código legacy en Java, elevando la estabilidad general del sistema.'
                     ],
-                    technologies: ['Java', 'Spring Boot', 'Agile/Scrum', 'Jira']
+                    technologies: ['Java', 'Spring Boot', 'SQL Server', 'Agile/Scrum', 'Jira']
                 }
             ];
         } else {
@@ -57,7 +57,7 @@ export class ExperienceService {
                         'Led the development and integration of front-end modules, significantly improving user experience (UX/UI).',
                         'Implemented and maintained comprehensive unit and integration test coverage to guarantee software resilience.'
                     ],
-                    technologies: ['C# .NET', 'Angular', 'AWS', 'SQL Server', 'CI/CD']
+                    technologies: ['C# .NET', 'Angular', 'AWS', 'SQL Server', 'CI/CD', 'Docker', 'Agile/Scrum']
                 },
                 {
                     id: 'tcs',
@@ -70,7 +70,7 @@ export class ExperienceService {
                         'Translated complex business requirements for The Home Depot into precise technical specifications and functional code.',
                         'Identified the root cause and resolved over 20 critical legacy Java codebase issues, elevating overall system stability.'
                     ],
-                    technologies: ['Java', 'Spring Boot', 'Agile/Scrum', 'Jira']
+                    technologies: ['Java', 'Spring Boot', 'SQL Server', 'Agile/Scrum', 'Jira']
                 }
             ];
         }
