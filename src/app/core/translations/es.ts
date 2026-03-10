@@ -52,6 +52,6 @@ export const es = {
     footer: {
         message: 'Construyamos algo increíble juntos. Conecta conmigo en mis redes.',
         location: 'Montevideo, Uruguay',
-        rights: '© 2025 J.Rabuñal. Todos los derechos reservados.'
+        rights: '© 2026 J.Rabuñal. Todos los derechos reservados.'
     }
 };

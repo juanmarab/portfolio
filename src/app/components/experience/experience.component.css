@@ -141,6 +141,33 @@
     font-size: 1.2rem;
 }
 
+/* Tech Stack Tags */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle separator */
+}
+
+.tech-tag {
+    background: rgba(var(--color-primary-rgb), 0.1);
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all var(--transition-short);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+}
+
+.tech-tag:hover {
+    background: rgba(var(--color-primary-rgb), 0.2);
+    transform: translateY(-2px);
+}
+
 @media (min-width: 768px) {
     .timeline::before {
         left: 50%;

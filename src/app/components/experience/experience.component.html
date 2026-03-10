@@ -31,6 +31,10 @@
         <ul class="experience-points">
           <li *ngFor="let achievement of job.achievements">{{ achievement }}</li>
         </ul>
+
+        <div class="tech-stack" *ngIf="job.technologies && job.technologies.length > 0">
+          <span class="tech-tag" *ngFor="let tech of job.technologies">{{ tech }}</span>
+        </div>
       </div>
     </div>
 

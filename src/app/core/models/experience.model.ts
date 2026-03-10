@@ -5,4 +5,5 @@ export interface Experience {
     role: string;
     period: string;
     achievements: string[];
+    technologies?: string[];
 }

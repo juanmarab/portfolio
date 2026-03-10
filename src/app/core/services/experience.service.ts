@@ -25,7 +25,8 @@ export class ExperienceService {
                         'Automaticé pipelines de CI/CD y gestioné arquitectura en la nube (AWS), asegurando alta disponibilidad (HA) en todo momento.',
                         'Lideré el desarrollo e integración de los módulos front-end, mejorando significativamente la experiencia de usuario (UX/UI).',
                         'Implementé y mantuve una cobertura exhaustiva de pruebas unitarias e integrales para garantizar la resiliencia del software.'
-                    ]
+                    ],
+                    technologies: ['C# .NET', 'Angular', 'AWS', 'SQL Server', 'CI/CD']
                 },
                 {
                     id: 'tcs',
@@ -37,7 +38,8 @@ export class ExperienceService {
                         'Colaboré activamente en un equipo ágil distribuido globalmente (México, India) para entregar nuevas integraciones en tiempo récord.',
                         'Traduje requerimientos complejos de negocio del cliente The Home Depot en especificaciones técnicas precisas y código funcional.',
                         'Identifiqué la causa raíz y resolví más de 20 incidencias críticas reportadas sobre una base de código legacy en Java, elevando la estabilidad general del sistema.'
-                    ]
+                    ],
+                    technologies: ['Java', 'Spring Boot', 'Agile/Scrum', 'Jira']
                 }
             ];
         } else {
@@ -54,7 +56,8 @@ export class ExperienceService {
                         'Automated CI/CD pipelines and managed cloud architecture (AWS), ensuring high availability (HA) at all times.',
                         'Led the development and integration of front-end modules, significantly improving user experience (UX/UI).',
                         'Implemented and maintained comprehensive unit and integration test coverage to guarantee software resilience.'
-                    ]
+                    ],
+                    technologies: ['C# .NET', 'Angular', 'AWS', 'SQL Server', 'CI/CD']
                 },
                 {
                     id: 'tcs',
@@ -66,7 +69,8 @@ export class ExperienceService {
                         'Actively collaborated in a globally distributed agile team (Mexico, India) to deliver new integrations in record time.',
                         'Translated complex business requirements for The Home Depot into precise technical specifications and functional code.',
                         'Identified the root cause and resolved over 20 critical legacy Java codebase issues, elevating overall system stability.'
-                    ]
+                    ],
+                    technologies: ['Java', 'Spring Boot', 'Agile/Scrum', 'Jira']
                 }
             ];
         }

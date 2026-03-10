@@ -1,0 +1,42 @@
+
+> portfolio@0.0.0 build
+> ng build
+
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+[1m[31m
+Error: [96msrc/app/components/experience/experience.component.html[0m:[93m35[0m:[93m44[0m - [91merror[0m[90m TS2339: [0mProperty 'technologies' does not exist on type 'Experience'.
+
+[7m35[0m         <div class="tech-stack" *ngIf="job.technologies && job.technologies.length > 0">
+[7m  [0m [91m                                           ~~~~~~~~~~~~[0m
+
+  [96msrc/app/components/experience/experience.component.ts[0m:[93m8[0m:[93m16[0m
+    [7m8[0m   templateUrl: './experience.component.html',
+    [7m [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ExperienceComponent.
+
+
+Error: [96msrc/app/components/experience/experience.component.html[0m:[93m35[0m:[93m64[0m - [91merror[0m[90m TS2339: [0mProperty 'technologies' does not exist on type 'Experience'.
+
+[7m35[0m         <div class="tech-stack" *ngIf="job.technologies && job.technologies.length > 0">
+[7m  [0m [91m                                                               ~~~~~~~~~~~~[0m
+
+  [96msrc/app/components/experience/experience.component.ts[0m:[93m8[0m:[93m16[0m
+    [7m8[0m   templateUrl: './experience.component.html',
+    [7m [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ExperienceComponent.
+
+
+Error: [96msrc/app/components/experience/experience.component.html[0m:[93m36[0m:[93m58[0m - [91merror[0m[90m TS2339: [0mProperty 'technologies' does not exist on type 'Experience'.
+
+[7m36[0m           <span class="tech-tag" *ngFor="let tech of job.technologies">{{ tech }}</span>
+[7m  [0m [91m                                                         ~~~~~~~~~~~~[0m
+
+  [96msrc/app/components/experience/experience.component.ts[0m:[93m8[0m:[93m16[0m
+    [7m8[0m   templateUrl: './experience.component.html',
+    [7m [0m [96m               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Error occurs in the template of component ExperienceComponent.
+
+
+[39m[22m
