@@ -1,42 +1,18 @@
-import { Component } from '@angular/core';
-import { InfoCardComponent } from "../shared/info-card/info-card.component";
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EducationService } from '../../core/services/education.service';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
-  standalone: true, 
-  imports: [
-    CommonModule,
-    InfoCardComponent
-  ]
+  styleUrls: ['./education.component.css'],
+  standalone: true,
+  imports: [CommonModule]
 })
 export class EducationComponent {
+  private educationService = inject(EducationService);
+  public langService = inject(LanguageService);
 
-  educationHistory = [
-    {
-      logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMh6i2GJOjC6DpnfI0rju0zGL9dVVsNH2BGA&s',
-      title: 'Bachelor in Systems',
-      subtitle: 'University ORT, Uruguay',
-      dates: '(2019 - 2026)',
-      points: [
-        'Currently finishing a Bachelor\'s degree in Systems with a focus on software development and technology.',
-        'Enhanced problem-solving skills through practical and theoretical projects.',
-        'Gained experience in teamwork and collaboration for academic and professional growth.'
-      ]
-    },
-    {
-      logo: 'https://www2.utu.edu.uy/wp-content/uploads/2025/04/Logotipo-DGETP-Vertical-fondo-sobre-color-2.png',
-      title: 'Technical High School in Computer Science',
-      subtitle: 'UTU, Uruguay',
-      dates: '(2015 - 2018)',
-      points: [
-        'Completed a technical program focused on foundational computing concepts and programming.',
-        'Acquired essential skills in software development,hardware, algorithms, and data structures.',
-        'Developed strong technical abilities, preparing for higher education in the field.'
-      ]
-    }
-  ];
-
-  constructor() { }
+  public educationHistory = this.educationService.educationHistory;
 }

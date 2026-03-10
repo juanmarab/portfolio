@@ -1,18 +1,14 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Para *ngFor
-import { InfoCardComponent } from '../shared/info-card/info-card.component'; // (Ajusta la ruta)
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  
+  styleUrls: ['./about.component.css'],
   standalone: true,
-  imports: [
-    CommonModule,
-    InfoCardComponent
-  ]
+  imports: [CommonModule]
 })
 export class AboutComponent {
-
-  
+  public langService = inject(LanguageService);
 }

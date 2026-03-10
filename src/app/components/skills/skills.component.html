@@ -1,55 +1,15 @@
-<section  class="skills-section">
-  <div class="container">
-      <h2 class="text-center text-accent mb-4">Skills & Abilities</h2>
-      <div class="skills-grid">
-          <div class="skill-card">
-                <img src="https://img.icons8.com/?size=100&id=71257&format=png" alt="Angular">
-                <p class="skill-name">Angular</p>
+<section class="section section-dark skills-section" id="skills">
+    <div class="skills-bg-glow"></div>
+    <div class="container skills-container">
+        <h2 class="section-title">{{ langService.t().skills.section_title }}</h2>
+
+        <div class="skills-grid">
+            <div *ngFor="let skill of skills" class="skill-card">
+                <div class="skill-icon-wrapper">
+                    <img [src]="skill.icon" [alt]="skill.name + ' Logo'">
+                </div>
+                <p class="skill-name">{{ skill.name }}</p>
             </div>
-            <div class="skill-card">
-                <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS">
-                <p class="skill-name">AWS</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://firebase.google.com/static/images/brand-guidelines/logo-logomark.png" alt="Firebase">
-                <p class="skill-name">Firebase</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/TypeScript_ESLint_logo.svg/768px-TypeScript_ESLint_logo.svg.png" alt="Frontend">
-                <p class="skill-name">TypeScript</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Microsoft_.NET_logo.svg/800px-Microsoft_.NET_logo.svg.png" alt="C#">
-                <p class="skill-name">.NET (C#)</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://img.icons8.com/color/48/000000/spring-logo.png" alt="Java Spring">
-                <p class="skill-name">Java Spring</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker">
-                <p class="skill-name">Docker</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB">
-                <p class="skill-name">MongoDB</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://img.icons8.com/color/48/000000/git.png" alt="Git">
-                <p class="skill-name">Git / GitHub</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://img.icons8.com/color/48/000000/golang.png" alt="Go">
-                <p class="skill-name">Go</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="Go">
-                <p class="skill-name">PostgreSQL</p>
-            </div>
-            <div class="skill-card">
-                <img src="https://www.svgrepo.com/show/331760/sql-database-generic.svg" alt="Go">
-                <p class="skill-name">SQL</p>
-            </div>
-      </div>
-  </div>
+        </div>
+    </div>
 </section>

@@ -1,54 +1,56 @@
-<section class="hero-section py-5 text-center">
-  <div class="container">
+<section class="hero-section text-center section-light">
+  <div class="hero-bg-glow"></div>
+  <div class="container hero-content">
     <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <h1 class="display-4 fw-bold mb-3">
-          Full-Stack Developer | .NET, AWS & Angular Specialist
+      <div class="col-12 col-xl-10">
+        <h1 class="hero-title fw-bold">
+          {{ langService.t().hero.title1 }} <br /><span class="text-gradient">{{ langService.t().hero.title2 }}</span>
         </h1>
-        
-        <p class="lead text-muted mb-4 mx-auto" style="max-width: 800px;">
-          Building scalable web applications and automating workflows to solve complex business problems. 
-          3+ years of experience delivering efficient code and user-centric solutions.
+
+        <p class="hero-subtitle">
+          {{ langService.t().hero.subtitle }}
         </p>
 
-        <div class="d-flex justify-content-center gap-3 mb-5">
-          <a href="assets/resume.pdf" target="_blank" class="btn btn-outline-dark btn-lg px-4">Download Resume</a>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="assets/Resume2026.pdf" target="_blank" class="btn-primary-custom btn-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+              class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+              <path
+                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
+            </svg>
+            {{ langService.t().hero.download_cv }}
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="my-5" style="opacity: 0.1;"> <div class="container mb-5" id="about">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      
-      <div class="text-center">
-        <img 
-          src="assets/images/professional-photo.jpg"       
-          alt="Juan Marab - Professional Profile" 
-          class="img-fluid rounded-circle mb-4 shadow" 
-          style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #fff;">
-        
-        <h2 class="mb-4 fw-bold">Beyond the Code</h2>
-      </div>
-      
-      <app-info-card [mode]="'light'">
-      
-        <p class="lead">
-          I am a Software Developer with over 3 years of experience specializing in the .NET ecosystem and Angular. My focus is not just on writing code, but on engineering solutions that optimize performance and drive business value.
-        </p>
+<section class="section section-dark" id="about">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
 
-        <p>
-          Currently, I am leveraging tools like <strong>n8n and Make</strong> to build automations that reduce manual friction, while finalizing my academic thesis on AI-driven security systems. I thrive in collaborative environments where I can tackle challenging technical hurdles and deliver robust software architectures.
-        </p>
-  
-        <div class="text-center mt-4">
-            <p class="fw-bold text-primary">Let's build something great together.</p>
+        <div class="about-header">
+          <div class="profile-image-wrapper">
+            <img src="assets/images/professional-photo.jpg" alt="Juan Manuel Rabuñal - Perfil" class="profile-image">
+          </div>
+          <h2 class="section-title">{{ langService.t().about.section_title }}</h2>
         </div>
 
-      </app-info-card>
+        <div class="app-card about-content-card">
+          <p class="about-text" [innerHTML]="langService.t().about.p1"></p>
 
+          <p class="about-text" [innerHTML]="langService.t().about.p2"></p>
+
+          <p class="about-text" [innerHTML]="langService.t().about.p3"></p>
+
+          <div class="about-highlight">
+            {{ langService.t().about.highlight }}
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
+</section>

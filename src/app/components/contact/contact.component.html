@@ -1,50 +1,61 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
+<section id="contact" class="section section-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
 
-      <h2 class="text-center mb-5">Get In Touch</h2>
-      
-      <h3 class="text-center h4 mb-3">Book a Meeting</h3>
+        <div class="text-center mb-5">
+          <h2 class="section-title">{{ langService.t().contact.section_title }}</h2>
+          <p class="text-muted">{{ langService.t().contact.subtitle }}</p>
+        </div>
 
-      <app-calendly-widget 
-          [calendlyUrl]="'https://calendly.com/jrabunal/30-meeting'">
-      </app-calendly-widget>
+        <div class="row g-5">
+          <div class="col-md-6">
+            <h3 class="h4 mb-4 text-center">{{ langService.t().contact.meeting_title }}</h3>
+            <div class="app-card p-2 h-100 d-flex flex-column">
+              <app-calendly-widget [calendlyUrl]="'https://calendly.com/jrabunal/30-meeting'" style="flex-grow: 1;">
+              </app-calendly-widget>
+            </div>
+          </div>
 
-      <h3 class="text-center h4 mt-5 mb-3">Send a Message</h3> <form (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm">
-        
-        <div class="mb-3">
-          <label for="name" class="form-label">
-            <i class="fas fa-user me-2"></i> Name
-          </label>
-          <input type="text" id="name" name="name" 
-                 class="form-control" placeholder="Enter your name" 
-                 required ngModel #name="ngModel">
+          <div class="col-md-6">
+            <h3 class="h4 mb-4 text-center">{{ langService.t().contact.message_title }}</h3>
+
+            <form (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm" class="app-card">
+
+              <div class="mb-4">
+                <label for="name" class="form-label">
+                  <i class="fas fa-user text-primary me-2"></i> {{ langService.t().contact.name_label }}
+                </label>
+                <input type="text" id="name" name="name" class="form-control premium-input"
+                  [placeholder]="langService.t().contact.name_placeholder" required ngModel #name="ngModel">
+              </div>
+
+              <div class="mb-4">
+                <label for="email" class="form-label">
+                  <i class="fas fa-envelope text-primary me-2"></i> {{ langService.t().contact.email_label }}
+                </label>
+                <input type="email" id="email" name="email" class="form-control premium-input"
+                  [placeholder]="langService.t().contact.email_placeholder" required email ngModel #email="ngModel">
+              </div>
+
+              <div class="mb-4">
+                <label for="message" class="form-label">
+                  <i class="fas fa-comment text-primary me-2"></i> {{ langService.t().contact.message_label }}
+                </label>
+                <textarea id="message" name="message" rows="5" class="form-control premium-input"
+                  [placeholder]="langService.t().contact.message_placeholder" required ngModel
+                  #message="ngModel"></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary-custom w-100" [disabled]="!contactForm.valid">
+                <i class="fas fa-paper-plane me-2"></i> {{ langService.t().contact.submit_button }}
+              </button>
+            </form>
+
+          </div>
         </div>
-        
-        <div class="mb-3">
-          <label for="email" class="form-label">
-            <i class="fas fa-envelope me-2"></i> Email
-          </label>
-          <input type="email" id="email" name="email" 
-                 class="form-control" placeholder="Enter your email" 
-                 required email ngModel #email="ngModel">
-        </div>
-        
-        <div class="mb-3">
-          <label for="message" class="form-label">
-            <i class="fas fa-comment me-2"></i> Message
-          </label>
-          <textarea id="message" name="message" rows="4" 
-                    class="form-control" placeholder="Enter your message" 
-                    required ngModel #message="ngModel"></textarea>
-        </div>
-        
-        <div class="d-flex flex-wrap justify-content-end gap-3 mt-4">
-          <button type="submit" class="btn btn-lg btn-submit" [disabled]="!contactForm.valid"> 
-            <i class="fas fa-paper-plane me-2"></i> Submit
-          </button>
-        </div>
-      </form>
+
+      </div>
     </div>
   </div>
-</div>
+</section>

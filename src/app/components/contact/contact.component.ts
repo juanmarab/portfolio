@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import emailjs from 'emailjs-com';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CalendlyWidgetComponent } from '../shared/calendly-widget/calendly-widget.component';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-contact',
@@ -13,29 +14,31 @@ import { CalendlyWidgetComponent } from '../shared/calendly-widget/calendly-widg
     CalendlyWidgetComponent
   ],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+  styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
 
-  public sendEmail(contactForm: NgForm): void { 
+  public langService = inject(LanguageService);
+
+  public sendEmail(contactForm: NgForm): void {
     if (contactForm.invalid) {
-      alert('Please fill in all fields correctly.');
+      alert(this.langService.t().contact.alert_validation);
       return;
     }
 
-    const serviceID = 'service_22qqfjs'; // Tu Service ID
-    const templateID = 'portfolio_contact'; // Tu Template ID
-    const publicKey = 'rf6aulzAHdwFL8Wdw'; // Tu Public Key
+    const serviceID = 'service_22qqfjs';
+    const templateID = 'portfolio_contact';
+    const publicKey = 'rf6aulzAHdwFL8Wdw';
 
     emailjs.send(serviceID, templateID, contactForm.value, publicKey)
       .then(response => {
-        console.log('Email send successfully:', response);
-        alert('Email send successfully'); // <-- Reemplazar 'alert' con un modal es un buen próximo paso
+        console.log('Email sent successfully:', response);
+        alert(this.langService.t().contact.alert_success);
         contactForm.reset();
       })
       .catch(error => {
-        console.error('Error:', error);
-        alert('Error');
+        console.error('Error sending email:', error);
+        alert(this.langService.t().contact.alert_error);
       });
   }
 }

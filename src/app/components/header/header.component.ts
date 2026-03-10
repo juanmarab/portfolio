@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -10,16 +11,31 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   isMenuOpen = false;
+  isScrolled = false;
+
+  public langService = inject(LanguageService);
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 50;
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
   scrollTo(sectionId: string) {
-    this.isMenuOpen = false; // Cerrar menú al hacer click en un enlace
+    this.isMenuOpen = false;
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   }
 }

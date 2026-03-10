@@ -1,0 +1,171 @@
+/* Premium Timeline Styles for Education */
+.education-section {
+    position: relative;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Timeline vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    width: 2px;
+    background: var(--color-border);
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 4.5rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline dot */
+.timeline-dot {
+    position: absolute;
+    top: 0;
+    left: 17px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-bg-base);
+    border: 3px solid var(--color-secondary);
+    /* Using secondary color for distinction */
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    /* Glow matching secondary */
+}
+
+/* Timeline Content Card */
+.timeline-content {
+    background: var(--color-bg-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.timeline-content:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+/* Header inside card */
+.education-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.institution-logo {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #fff;
+    /* Keep white so logos look good */
+    padding: 0.25rem;
+    border: 1px solid var(--color-border);
+}
+
+.institution-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.education-title h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.4rem;
+    color: var(--color-text-main);
+}
+
+.education-institution {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--color-secondary);
+    /* Differentiating with secondary color */
+    margin: 0 0 0.25rem 0;
+}
+
+.education-period {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* List of achievements */
+.education-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.education-points li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.education-points li:last-child {
+    margin-bottom: 0;
+}
+
+/* Custom bullet for achievements */
+.education-points li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    top: 0px;
+    color: var(--color-secondary);
+    font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+    .timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-dot {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        width: 50%;
+        padding-left: 0;
+    }
+
+    .timeline-item:nth-child(odd) {
+        padding-right: 3rem;
+    }
+
+    .timeline-item:nth-child(even) {
+        margin-left: 50%;
+        padding-left: 3rem;
+    }
+}
