@@ -1,16 +1,28 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <base href="/portfolio/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Security Headers (CSP & Others) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+                 script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://cdn.jsdelivr.net; 
+                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
+                 font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; 
+                 img-src 'self' data: https:; 
+                 frame-src 'self' https://calendly.com;
+                 connect-src 'self' https://api.emailjs.com;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
 </head>
+
 <body>
   <app-root></app-root>
-  <script type="text/javascript" 
-          src="https://assets.calendly.com/assets/external/widget.js" 
-          async>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async>
   </script>
 </body>
+
 </html>

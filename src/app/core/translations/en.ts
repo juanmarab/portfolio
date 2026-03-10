@@ -15,9 +15,9 @@ export const en = {
     },
     about: {
         section_title: 'Beyond the Code',
-        p1: 'I am a Software Developer with over 3 years of experience specializing in the <strong>.NET ecosystem and Angular</strong>. My focus is not just on writing code, but on engineering solutions from start to finish that optimize performance and drive real business value for my clients and team.',
-        p2: 'Currently, I leverage tools like <strong>n8n and Make</strong> to build automations that significantly reduce manual friction in business operations, all while finishing my academic thesis on <strong>AI-driven cybersecurity systems</strong>.',
-        p3: 'I excel in highly collaborative environments (Agile/Scrum), where I can proactively tackle complex technical challenges, research new technologies like LLMs and APIs, and deliver efficient and robust software architectures.',
+        p1: 'I am a Software Developer with over 3 years of experience specializing in the <strong>.NET ecosystem and Angular</strong>. My focus goes beyond writing code; I engineer end-to-end solutions, building scalable architectures that optimize performance and drive real business value for my clients and team.',
+        p2: 'Currently, I am in the final stages of developing <strong>Guard-IA</strong>, my academic thesis: an advanced cybersecurity system engineered to detect corporate email fraud and phishing. In this project, I leverage Artificial Intelligence and Deep Learning for complex text analysis, integrating predictive models and LLMs into a secure, highly available environment.',
+        p3: 'Alongside my research, I leverage tools like <strong>n8n and Make</strong> to build automations that significantly reduce operational friction, while also architecting complex B2B SaaS platforms. I thrive in collaborative Agile/Scrum environments, where I proactively tackle high-level technical challenges and continuously adopt emerging technologies.',
         highlight: 'Let\'s build something incredible together.'
     },
     experience: {

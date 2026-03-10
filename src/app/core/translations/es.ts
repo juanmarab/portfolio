@@ -15,9 +15,9 @@ export const es = {
     },
     about: {
         section_title: 'Más allá del Código',
-        p1: 'Soy un Desarrollador de Software con más de 3 años de experiencia especializado en el ecosistema <strong>.NET y Angular</strong>. Mi enfoque no es solo escribir código, sino diseñar de principio a fin soluciones que optimicen el rendimiento y generen valor real de negocio para mis clientes y mi equipo.',
-        p2: 'Actualmente, me apoyo en herramientas como <strong>n8n y Make</strong> para construir automatizaciones que reducen significativamente la fricción manual en operaciones empresariales, todo esto mientras finalizo mi tesis académica sobre <strong>sistemas de ciberseguridad impulsados por IA</strong>.',
-        p3: 'Me destaco en entornos altamente colaborativos (Agile/Scrum), donde puedo enfrentar de manera proactiva desafíos técnicos complejos, investigar nuevas tecnologías como LLMs y APIs, y entregar arquitecturas de software eficientes y robustas.',
+        p1: 'Soy un Desarrollador de Software con más de 3 años de experiencia especializado en el <strong>ecosistema .NET y Angular</strong>. Mi enfoque va más allá de escribir código; diseño soluciones de principio a fin, construyendo arquitecturas escalables que optimizan el rendimiento y generan valor real de negocio para mis clientes y mi equipo.',
+        p2: 'Actualmente, me encuentro en la etapa final del desarrollo de <strong>Guard-IA</strong>, mi tesis académica: un avanzado sistema de ciberseguridad diseñado para detectar el fraude corporativo por correo electrónico y el phishing. En este proyecto, aprovecho la Inteligencia Artificial y el Deep Learning para el análisis complejo de texto, integrando modelos predictivos y LLMs en un entorno seguro y de alta disponibilidad.',
+        p3: 'Junto a mi investigación, me apoyo en herramientas como <strong>n8n y Make</strong> para construir automatizaciones que reducen significativamente la fricción operativa, a la vez que diseño complejas plataformas SaaS B2B. Me destaco en entornos colaborativos Agile/Scrum, donde abordo de manera proactiva desafíos técnicos de alto nivel y adopto continuamente tecnologías emergentes.',
         highlight: 'Construyamos algo increíble juntos.'
     },
     experience: {
