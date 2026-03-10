@@ -5,7 +5,7 @@ import { LanguageService } from './language.service';
 const PROJECTS_DATA = [
     {
         id: 'guard-ia',
-        logo: '/assets/images/guardia-logo.png',
+        logo: 'assets/images/guardia-logo.png',
         linkUrl: 'https://github.com/sogliano/guardia',
         techStack: ['Vue 3', 'FastAPI', 'DistilBERT', 'Claude', 'PostgreSQL', 'Docker', 'Cloud Run'],
         es: {
