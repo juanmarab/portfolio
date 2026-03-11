@@ -1,20 +1,34 @@
-import { Component, Input, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-calendly-widget',
   standalone: true,
   imports: [],
   template: `
-    <div #container class="calendly-inline-widget" style="min-width:320px; height:700px;">
+    <div #container style="min-width: 100%; height:700px; width: 100%;">
     </div>
   `,
+  styles: [`
+    :host {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  `]
 })
-export class CalendlyWidgetComponent implements AfterViewInit {
+export class CalendlyWidgetComponent implements AfterViewInit, OnDestroy {
   @Input() calendlyUrl: string = '';
   @ViewChild('container') container!: ElementRef;
+  private timeoutId: any;
 
   ngAfterViewInit() {
     this.checkAndInitCalendly();
+  }
+
+  ngOnDestroy() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
   }
 
   private checkAndInitCalendly() {
@@ -22,7 +36,7 @@ export class CalendlyWidgetComponent implements AfterViewInit {
     if (window.Calendly) {
       this.initCalendly();
     } else {
-      setTimeout(() => this.checkAndInitCalendly(), 200);
+      this.timeoutId = setTimeout(() => this.checkAndInitCalendly(), 200);
     }
   }
 
