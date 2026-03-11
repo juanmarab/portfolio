@@ -31,7 +31,15 @@ export const es = {
         section_title: 'Formación Académica'
     },
     skills: {
-        section_title: 'Habilidades Técnicas'
+        section_title: 'Habilidades Técnicas',
+        categories: {
+            all: 'Todas',
+            frontend: 'Frontend',
+            backend: 'Backend',
+            cloud_db: 'Cloud & Bases de Datos',
+            devops: 'DevOps & Automatización',
+            ai: 'IA & Machine Learning'
+        }
     },
     contact: {
         section_title: 'Ponte en Contacto',

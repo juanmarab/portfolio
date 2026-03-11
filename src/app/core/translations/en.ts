@@ -31,7 +31,15 @@ export const en = {
         section_title: 'Academic Background'
     },
     skills: {
-        section_title: 'Technical Skills'
+        section_title: 'Technical Skills',
+        categories: {
+            all: 'All Skills',
+            frontend: 'Frontend',
+            backend: 'Backend',
+            cloud_db: 'Cloud & Database',
+            devops: 'DevOps & Automation',
+            ai: 'AI & Machine Learning'
+        }
     },
     contact: {
         section_title: 'Get In Touch',

@@ -1,14 +1,28 @@
 <section class="section section-dark skills-section" id="skills">
     <div class="skills-bg-glow"></div>
     <div class="container skills-container">
-        <h2 class="section-title">{{ langService.t().skills.section_title }}</h2>
+        <h2 class="section-title text-center">{{ langService.t().skills.section_title }}</h2>
 
-        <div class="skills-grid">
-            <div *ngFor="let skill of skills" class="skill-card">
-                <div class="skill-icon-wrapper">
-                    <img [src]="skill.icon" [alt]="skill.name + ' Logo'">
+        <!-- Filter Tabs -->
+        <div class="filter-tabs d-flex flex-wrap justify-content-center gap-2 mb-5">
+            <button class="filter-btn" [class.active]="activeCategory === 'all'" (click)="setActiveCategory('all')">
+                {{ langService.t().skills.categories['all'] }}
+            </button>
+            <button *ngFor="let category of skillCategories" class="filter-btn"
+                [class.active]="activeCategory === category.titleKey" (click)="setActiveCategory(category.titleKey)">
+                {{ langService.t().skills.categories[category.titleKey] }}
+            </button>
+        </div>
+
+        <div *ngFor="let category of displayedCategories" class="skills-category-group mb-5">
+            <h3 class="category-title text-center mb-4" *ngIf="activeCategory === 'all'">{{ langService.t().skills.categories[category.titleKey] }}</h3>
+            <div class="skills-grid">
+                <div *ngFor="let skill of category.items" class="skill-card">
+                    <div class="skill-icon-wrapper">
+                        <img [src]="skill.icon" [alt]="skill.name + ' Logo'">
+                    </div>
+                    <p class="skill-name">{{ skill.name }}</p>
                 </div>
-                <p class="skill-name">{{ skill.name }}</p>
             </div>
         </div>
     </div>
