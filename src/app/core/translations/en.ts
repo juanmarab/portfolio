@@ -11,10 +11,17 @@ export const en = {
         title1: 'Full-Stack Developer',
         title2: 'Specialist in .NET, AWS & Angular',
         subtitle: 'Building scalable web applications and automating workflows to solve complex business problems. Over 3 years of experience delivering efficient code and user-centric solutions.',
-        download_cv: 'Download Resume'
+        download_cv: 'Download Resume',
+        view_projects: 'View Projects',
+        trust_years: '3+ years experience',
+        trust_location: 'Montevideo, Uruguay',
+        trust_university: 'ORT University',
+        social_linkedin_aria: 'Open LinkedIn profile in a new tab',
+        social_github_aria: 'Open GitHub profile in a new tab'
     },
     about: {
         section_title: 'Beyond the Code',
+        profile_alt: 'Juan Manuel Rabuñal - Professional profile photo',
         p1: 'I am a Software Developer with over 3 years of experience specializing in the <strong>.NET ecosystem and Angular</strong>. My focus goes beyond writing code; I engineer end-to-end solutions, building scalable architectures that optimize performance and drive real business value for my clients and team.',
         p2: 'Currently, I am in the final stages of developing <strong>Guard-IA</strong>, my academic thesis: an advanced cybersecurity system engineered to detect corporate email fraud and phishing. In this project, I leverage Artificial Intelligence and Deep Learning for complex text analysis, integrating predictive models and LLMs into a secure, highly available environment.',
         p3: 'Alongside my research, I leverage tools like <strong>n8n and Make</strong> to build automations that significantly reduce operational friction, while also architecting complex B2B SaaS platforms. I thrive in collaborative Agile/Scrum environments, where I proactively tackle high-level technical challenges and continuously adopt emerging technologies.',

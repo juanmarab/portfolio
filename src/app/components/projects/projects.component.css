@@ -135,3 +135,9 @@
     display: flex;
     gap: 1rem;
 }
+
+.project-actions .btn-icon {
+    display: inline-flex;
+    margin-right: 8px;
+    vertical-align: middle;
+}

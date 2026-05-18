@@ -7,14 +7,20 @@
     </div>
 
     <!-- Mobile Hamburger -->
-    <button class="hamburger-btn" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Toggle Navigation">
+    <button class="hamburger-btn"
+      type="button"
+      (click)="toggleMenu()"
+      [class.active]="isMenuOpen"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-controls="primary-navigation"
+      aria-label="Toggle Navigation">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
 
     <!-- Navigation Links -->
-    <nav class="nav-menu" [class.open]="isMenuOpen">
+    <nav id="primary-navigation" class="nav-menu" [class.open]="isMenuOpen">
       <button class="nav-link" (click)="scrollTo('experience')">{{ langService.t().nav.experience }}</button>
       <button class="nav-link" (click)="scrollTo('projects')">{{ langService.t().nav.projects }}</button>
       <button class="nav-link" (click)="scrollTo('skills')">{{ langService.t().nav.skills }}</button>

@@ -9,7 +9,7 @@
       <div class="timeline-content">
         <div class="experience-header">
           <div class="company-logo" *ngIf="job.logo">
-            <img [src]="job.logo" [alt]="job.companyName + ' Logo'">
+            <img [src]="job.logo" [alt]="job.companyName + ' Logo'" loading="lazy" decoding="async">
           </div>
 
           <div class="experience-title">

@@ -9,7 +9,7 @@
       <div class="timeline-content">
         <div class="education-header">
           <div class="institution-logo" *ngIf="edu.logo">
-            <img [src]="edu.logo" [alt]="edu.institution + ' Logo'">
+            <img [src]="edu.logo" [alt]="edu.institution + ' Logo'" loading="lazy" decoding="async">
           </div>
 
           <div class="education-title">

@@ -11,14 +11,39 @@
           {{ langService.t().hero.subtitle }}
         </p>
 
-        <div class="d-flex justify-content-center gap-3">
-          <a href="assets/Resume2026.pdf" target="_blank" class="btn-primary-custom btn-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-              class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
-              <path
-                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
-            </svg>
+        <ul class="hero-trust-row" aria-label="Highlights">
+          <li class="hero-trust-chip">
+            <app-icon name="briefcase" [size]="14"></app-icon>
+            <span>{{ langService.t().hero.trust_years }}</span>
+          </li>
+          <li class="hero-trust-chip">
+            <app-icon name="location" [size]="14"></app-icon>
+            <span>{{ langService.t().hero.trust_location }}</span>
+          </li>
+          <li class="hero-trust-chip">
+            <app-icon name="mortarboard" [size]="14"></app-icon>
+            <span>{{ langService.t().hero.trust_university }}</span>
+          </li>
+        </ul>
+
+        <div class="hero-cta-row d-flex justify-content-center flex-wrap gap-3">
+          <a href="assets/Resume2026.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary-custom btn-lg">
+            <app-icon name="download" [size]="18"></app-icon>
             {{ langService.t().hero.download_cv }}
+          </a>
+          <button type="button" class="btn-outline-custom btn-lg" (click)="scrollTo('projects')">
+            {{ langService.t().hero.view_projects }}
+          </button>
+        </div>
+
+        <div class="hero-socials" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/juanmarabunal/" target="_blank" rel="noopener noreferrer"
+            [attr.aria-label]="langService.t().hero.social_linkedin_aria">
+            <app-icon name="linkedin" [size]="22"></app-icon>
+          </a>
+          <a href="https://github.com/juanmarab" target="_blank" rel="noopener noreferrer"
+            [attr.aria-label]="langService.t().hero.social_github_aria">
+            <app-icon name="github" [size]="22"></app-icon>
           </a>
         </div>
       </div>
@@ -33,7 +58,13 @@
 
         <div class="about-header">
           <div class="profile-image-wrapper">
-            <img src="assets/images/professional-photo.jpg" alt="Juan Manuel Rabuñal - Perfil" class="profile-image">
+            <img src="assets/images/professional-photo.jpg"
+              [alt]="langService.t().about.profile_alt"
+              class="profile-image"
+              loading="eager"
+              decoding="async"
+              width="180"
+              height="180">
           </div>
           <h2 class="section-title">{{ langService.t().about.section_title }}</h2>
         </div>

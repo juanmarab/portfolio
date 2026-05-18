@@ -37,6 +37,13 @@
     justify-content: center;
 }
 
+.footer-location-icon {
+    display: inline-flex;
+    margin-right: 8px;
+    color: var(--color-primary);
+    vertical-align: middle;
+}
+
 .footer-social {
     display: flex;
     gap: 1.5rem;
