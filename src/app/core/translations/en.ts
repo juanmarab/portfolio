@@ -61,6 +61,7 @@ export const en = {
         message_label: 'Message',
         message_placeholder: 'Type your message here...',
         submit_button: 'Send Message',
+        sending: 'Sending…',
         alert_success: 'Message sent successfully. I will get in touch with you soon!',
         alert_error: 'An error occurred while sending the message. Please try again later.',
         alert_validation: 'Please fill in all fields correctly.'

@@ -4,7 +4,7 @@
     <p class="contact-intro text-muted">{{ langService.t().contact.subtitle }}</p>
 
     <div class="contact-grid">
-      <div class="contact-column">
+      <div class="contact-column" appReveal>
         <h3 class="contact-column-title">{{ langService.t().contact.meeting_title }}</h3>
         <div class="app-card calendly-card">
           <app-calendly-widget [calendlyUrl]="'https://calendly.com/jrabunal/30-meeting'" style="flex-grow: 1;">
@@ -12,7 +12,7 @@
         </div>
       </div>
 
-      <div class="contact-column">
+      <div class="contact-column" appReveal [revealDelay]="120">
         <h3 class="contact-column-title">{{ langService.t().contact.message_title }}</h3>
 
         <form (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm" class="app-card">
@@ -42,9 +42,17 @@
               #message="ngModel"></textarea>
           </div>
 
-          <button type="submit" class="btn-primary-custom contact-submit" [disabled]="!contactForm.valid">
-            <app-icon name="send" [size]="16"></app-icon> {{ langService.t().contact.submit_button }}
+          <button type="submit" class="btn-primary-custom contact-submit"
+            [disabled]="!contactForm.valid || status() === 'sending'">
+            <span *ngIf="status() === 'sending'; else sendIcon" class="contact-spinner" aria-hidden="true"></span>
+            <ng-template #sendIcon><app-icon name="send" [size]="16"></app-icon></ng-template>
+            {{ status() === 'sending' ? langService.t().contact.sending : langService.t().contact.submit_button }}
           </button>
+
+          <p class="form-status" role="status" aria-live="polite"
+            [class.form-status--error]="status() === 'error' || status() === 'invalid'"
+            [class.form-status--success]="status() === 'sent'"
+            [class.is-visible]="status() !== 'idle'">{{ statusMessage() }}</p>
         </form>
 
       </div>

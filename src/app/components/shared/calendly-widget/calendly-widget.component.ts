@@ -5,14 +5,23 @@ import { Component, Input, AfterViewInit, OnDestroy, ElementRef, ViewChild } fro
   standalone: true,
   imports: [],
   template: `
-    <div #container style="min-width: 100%; height:700px; width: 100%;">
-    </div>
+    <div #container class="calendly-host"></div>
   `,
   styles: [`
     :host {
       display: block;
       width: 100%;
       height: 100%;
+    }
+    .calendly-host {
+      width: 100%;
+      min-width: 100%;
+      height: 640px;
+    }
+    @media (min-width: 768px) {
+      .calendly-host {
+        height: 700px;
+      }
     }
   `]
 })
