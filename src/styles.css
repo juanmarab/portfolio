@@ -14,6 +14,11 @@
   --color-primary-glow: rgba(59, 130, 246, 0.4);
   --color-secondary: #8b5cf6;
   /* Deep purple */
+  --color-primary-rgb: 59, 130, 246;
+  --color-secondary-rgb: 139, 92, 246;
+  --color-secondary-glow: rgba(139, 92, 246, 0.4);
+  --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  --color-bg-main: var(--color-bg-base);
 
   /* Text Colors */
   --color-text-main: #f8fafc;
@@ -35,6 +40,33 @@
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-short: var(--transition-fast);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;
+  --dur-base: 350ms;
+  --dur-slow: 600ms;
+  --stagger: 60ms;
+  --reveal-distance: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-base: 0ms; --dur-slow: 0ms; --stagger: 0ms; --reveal-distance: 0px; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media print {
+  .reveal { opacity: 1; transform: none; }
 }
 
 /* --- Accessibility --- */

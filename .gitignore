@@ -36,3 +36,9 @@ Thumbs.db
 
 # Git config
 *.orig
+
+# Verification builds and scratch (not part of the site)
+.superpowers/build-check/
+.superpowers/screenshots/
+.superpowers/sdd/
+out-tsc/
