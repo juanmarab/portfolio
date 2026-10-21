@@ -1,0 +1,16 @@
+<section [id]="sectionId" class="section" [class.section-dark]="tone === 'dark'" [class.section-light]="tone === 'light'"
+         [class.is-open]="open()" [class.no-transition]="sections.instant()">
+  <div class="container">
+    <h2 class="section-title section-title--toggle">
+      <button #toggleBtn type="button" class="section-toggle" (click)="toggle()"
+              [attr.aria-expanded]="open()" [attr.aria-controls]="sectionId + '-body'">
+        <span class="section-title-text">{{ title }}</span>
+        <span class="section-meta" *ngIf="meta">{{ meta }}</span>
+        <span class="section-chevron" aria-hidden="true"></span>
+      </button>
+    </h2>
+  </div>
+  <div class="section-body" [id]="sectionId + '-body'" [attr.inert]="open() ? null : ''">
+    <div class="section-body-inner"><ng-content /></div>
+  </div>
+</section>

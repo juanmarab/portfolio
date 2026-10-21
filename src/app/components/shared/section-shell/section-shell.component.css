@@ -1,0 +1,51 @@
+.section-toggle {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0;
+  min-height: 44px;
+}
+
+.section-meta {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.section-chevron {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.is-open .section-chevron {
+  transform: rotate(225deg);
+}
+
+.section-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur-slow) var(--ease-out);
+}
+
+.section-body-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.is-open .section-body {
+  grid-template-rows: 1fr;
+}
+
+.no-transition .section-body {
+  transition: none;
+}

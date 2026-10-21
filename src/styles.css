@@ -67,6 +67,7 @@
 
 @media print {
   .reveal { opacity: 1; transform: none; }
+  .section-body { grid-template-rows: 1fr !important; }
 }
 
 /* --- Accessibility --- */
