@@ -74,7 +74,7 @@
   font-weight: 500;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: background-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
   backdrop-filter: blur(10px);
 }
 
@@ -85,16 +85,16 @@
 
 .filter-btn.active {
   background: var(--gradient-primary);
-  color: var(--color-bg-main);
+  color: #fff;
   border-color: transparent;
-  box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
   font-weight: 600;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
   justify-items: center;
   max-width: 1000px;
   margin: 2rem auto 0;
@@ -104,22 +104,18 @@
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
+  padding: 1rem 0.5rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  animation: fadeScale 0.5s ease backwards;
-}
-
-/* Staggered animation for nested grid items can be done roughly by formula or assuming default fade */
-.skill-card {
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
+  /* Cards are re-created when the filter changes, which replays the entrance; --i staggers it */
+  animation: fadeScale var(--dur-slow) var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 40ms);
 }
 
 @keyframes fadeScale {
@@ -133,17 +129,23 @@
   }
 }
 
-.skill-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  background: var(--color-bg-surface-elevated);
-  border-color: var(--color-primary);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(100, 255, 218, 0.2);
-  z-index: 2;
+@media (hover: hover) {
+  .skill-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    background: var(--color-bg-surface-elevated);
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(59, 130, 246, 0.2);
+    z-index: 2;
+  }
+
+  .skill-card:hover img {
+    transform: scale(1.15) rotate(5deg);
+  }
 }
 
 .skill-icon-wrapper {
-  width: 60px;
-  height: 60px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +154,7 @@
   /* White background to ensure logos are visible */
   border-radius: var(--radius-sm);
   padding: 0.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow var(--dur-base) var(--ease-out);
 }
 
 .skill-card:hover .skill-icon-wrapper {
@@ -163,11 +165,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.skill-card:hover img {
-  transform: scale(1.15) rotate(5deg);
+  transition: transform var(--dur-base) var(--ease-out);
 }
 
 .skill-name {
@@ -182,13 +180,21 @@
 /* Responsive Grid */
 @media (min-width: 576px) {
   .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .skill-card {
+    padding: 1.5rem;
+  }
+
+  .skill-icon-wrapper {
+    width: 60px;
+    height: 60px;
   }
 }
 
 @media (min-width: 768px) {
   .skills-grid {
-    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }
 }

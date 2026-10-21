@@ -1,6 +1,7 @@
 <div class="container">
   <div class="projects-grid">
-    <article *ngFor="let project of projectsList()" class="app-card project-card">
+    <article *ngFor="let project of projectsList(); index as i" class="app-card project-card" appReveal
+      [revealDelay]="i * 80">
 
       <div class="project-header">
         <div class="project-logo" *ngIf="project.logo">

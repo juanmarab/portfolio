@@ -15,7 +15,7 @@
         <div *ngFor="let category of displayedCategories" class="skills-category-group">
             <h3 class="category-title" *ngIf="activeCategory === 'all'">{{ langService.t().skills.categories[category.titleKey] }}</h3>
             <div class="skills-grid">
-                <div *ngFor="let skill of category.items" class="skill-card">
+                <div *ngFor="let skill of category.items; index as j" class="skill-card" [style.--i]="j">
                     <div class="skill-icon-wrapper">
                         <img [src]="skill.icon" [alt]="skill.name + ' Logo'" width="48" height="48" loading="lazy" decoding="async">
                     </div>
