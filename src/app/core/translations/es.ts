@@ -69,5 +69,11 @@ export const es = {
         message: 'Construyamos algo increíble juntos. Conecta conmigo en mis redes.',
         location: 'Montevideo, Uruguay',
         rights: '© 2026 J.Rabuñal. Todos los derechos reservados.'
+    },
+    shell: {
+        experience_meta: '{n} puestos',
+        projects_meta: '{n} proyectos',
+        skills_meta: '{n} categorías',
+        education_meta: '{n} títulos'
     }
 };

@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../core/services/language.service';
+import { ScrollService } from '../../core/services/scroll.service';
 import { IconComponent } from '../shared/icon/icon.component';
 
 @Component({
@@ -12,9 +13,9 @@ import { IconComponent } from '../shared/icon/icon.component';
 })
 export class AboutComponent {
   public langService = inject(LanguageService);
+  private scroll = inject(ScrollService);
 
   scrollTo(sectionId: string): void {
-    const el = document.getElementById(sectionId);
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.scroll.goTo(sectionId);
   }
 }

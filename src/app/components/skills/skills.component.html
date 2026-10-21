@@ -1,8 +1,6 @@
-<section class="section section-dark skills-section" id="skills">
+<div class="skills-section">
     <div class="skills-bg-glow"></div>
     <div class="container skills-container">
-        <h2 class="section-title text-center">{{ langService.t().skills.section_title }}</h2>
-
         <!-- Filter Tabs -->
         <div class="filter-tabs d-flex flex-wrap justify-content-center gap-2 mb-5">
             <button class="filter-btn" [class.active]="activeCategory === 'all'" (click)="setActiveCategory('all')">
@@ -26,4 +24,4 @@
             </div>
         </div>
     </div>
-</section>
+</div>

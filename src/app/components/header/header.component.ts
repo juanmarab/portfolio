@@ -1,6 +1,7 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../core/services/language.service';
+import { ScrollService } from '../../core/services/scroll.service';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ export class HeaderComponent {
   isScrolled = false;
 
   public langService = inject(LanguageService);
+  private scroll = inject(ScrollService);
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -26,16 +28,6 @@ export class HeaderComponent {
 
   scrollTo(sectionId: string) {
     this.isMenuOpen = false;
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+    this.scroll.goTo(sectionId);
   }
 }

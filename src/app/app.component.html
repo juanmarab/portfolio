@@ -3,29 +3,13 @@
 <app-header></app-header>
 
 <main id="main-content" tabindex="-1">
-  <!-- Hero / Introduction Phase -->
-  <!-- Hero / Introduction Phase & About -->
   <app-about></app-about>
 
-  <!-- Priority 1 for Recruiters: Experience -->
-  <section id="experience" class="section section-dark">
-    <app-experience></app-experience>
-  </section>
-
-  <!-- Priority 2 for Recruiters: Projects (SaaS, AI, etc.) -->
-  <section id="projects" class="section section-light">
-    <app-projects></app-projects>
-  </section>
-
-  <!-- Supporting Info: Skills -->
-  <app-skills></app-skills>
-
-  <section id="education" class="section section-light">
-    <app-education></app-education>
-  </section>
-
-  <!-- Call to Action -->
-  <app-contact></app-contact>
+  <app-section-shell sectionId="experience" tone="dark" [title]="langService.t().experience.section_title" [meta]="meta().experience"><app-experience /></app-section-shell>
+  <app-section-shell sectionId="projects" [title]="langService.t().projects.section_title" [meta]="meta().projects"><app-projects /></app-section-shell>
+  <app-section-shell sectionId="skills" tone="dark" [title]="langService.t().skills.section_title" [meta]="meta().skills"><app-skills /></app-section-shell>
+  <app-section-shell sectionId="education" [title]="langService.t().education.section_title" [meta]="meta().education"><app-education /></app-section-shell>
+  <app-section-shell sectionId="contact" [title]="langService.t().contact.section_title"><app-contact /></app-section-shell>
 </main>
 
 <app-footer></app-footer>
