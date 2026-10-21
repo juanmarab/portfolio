@@ -1,4 +1,10 @@
 export const es = {
+    meta: {
+        title: 'Juan Manuel Rabuñal — Desarrollador Full-Stack (AI/ML) | Java, .NET, Angular y AWS'
+    },
+    common: {
+        back_to_top: 'Volver arriba'
+    },
     nav: {
         about: 'Sobre mí',
         experience: 'Experiencia',

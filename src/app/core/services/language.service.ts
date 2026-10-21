@@ -44,6 +44,7 @@ export class LanguageService {
     private syncDocumentLang(lang: SupportedLanguage): void {
         if (typeof document !== 'undefined' && document.documentElement) {
             document.documentElement.lang = lang;
+            document.title = (lang === 'es' ? es : en).meta.title;
         }
     }
 }

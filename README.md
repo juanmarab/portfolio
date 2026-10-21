@@ -1,43 +1,62 @@
-# 👨‍💻 Juanma Rab - Personal Portfolio
+# Juan Manuel Rabuñal — Portfolio
 
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular%2019-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)
 
-> **Welcome.** This project is a Single Page Application (SPA) built to showcase my professional experience, software projects, and technical skills.
+Single-page portfolio: experience, projects, skills, education and contact, in English and Spanish.
 
-🔗 **Live Demo:** [https://juanmarab.github.io/portfolio/](https://juanmarab.github.io/portfolio/)
+**Live:** https://juanmarab.github.io/portfolio/
 
----
+## Stack
 
-## 🛠️ Tech Stack
+- Angular 19 standalone components with signals, no UI framework (Bootstrap was removed).
+- Plain CSS per component with global design tokens (colors, radii, motion) in `src/styles.css`.
+- Deployed as static files to GitHub Pages from the `docs/` folder of `main`.
 
-This portfolio is built from scratch using modern web development practices:
+## How it is built
 
-* **Framework:** [Angular](https://angular.io/) (Component-Based Architecture).
-* **Language:** TypeScript.
-* **Styling:** Native CSS3 (Responsive Design, Flexbox, Custom Properties).
-* **Hosting/CI:** GitHub Pages.
+- **Content as data.** Experience, projects, education and skills live in `src/app/core/data/*.ts` with `es`/`en` blocks; the services in `src/app/core/services/` project the active language. UI strings are in `src/app/core/translations/`.
+- **Sections.** `app-section-shell` renders each section's title and meta count and alternates the two background tones.
+- **Cards.** `app-card-details` shows logo, title and description and expands the rest on click; the collapsed content stays in the DOM, clipped and inert.
+- **Motion.** `appReveal` (an `IntersectionObserver` directive) triggers staggered entrance animations; a shared observer service, a scroll-progress bar under the header and a back-to-top button round it out. Everything respects `prefers-reduced-motion`.
+- **Contact.** EmailJS form with inline status and an embedded Calendly widget.
 
-## ✨ Key Features
+## Commands
 
-* **Responsive Design:** Fully adaptive layout for mobile, tablet, and desktop devices.
-* **Modular Components:** Uses reusable components (e.g., `InfoCardComponent`) to display experiences and projects dynamically.
-* **Dark/Light Theme:** Built-in support for visual themes.
-* **Conditional Rendering:** Dynamic UI elements, such as action buttons that only appear when external links are provided.
-* **Clean Routing:** Smooth navigation using Angular Router.
+```bash
+npm start                     # dev server on http://localhost:4200/
+npm test                      # Karma + Jasmine (ChromeHeadless works)
+npm run check:css             # fails if a CSS custom property is used but never defined
+npx ng build --output-path .superpowers/build-check   # production build without touching docs/
+```
 
-## 📂 Project Structure
+## Deploy
 
-The codebase is organized for scalability and maintainability:
+GitHub Pages serves `main` → `/docs`.
+
+```bash
+ng build --output-path docs --base-href /portfolio/
+git add docs
+git commit -m "deploy"
+git push origin main
+```
+
+## Structure
 
 ```text
 src/
 ├── app/
-│   ├── components/      # Reusable UI elements (InfoCard, Navbar, etc.)
-│   ├── pages/           # Main views (Home, Projects, Contact)
-│   ├── services/        # Data handling and state management
-│   └── shared/          # Models and interfaces
-├── assets/              # Static resources (images, icons)
-└── styles.css           # Global styles and CSS variables
+│   ├── components/        # about, header, experience, projects, skills, education, contact, footer
+│   │   └── shared/        # section-shell, card-details, icon, scroll-progress, back-to-top, calendly-widget
+│   ├── core/
+│   │   ├── data/          # content (ES/EN)
+│   │   ├── directives/    # appReveal
+│   │   ├── services/      # language, experience, project, education, reveal-observer, section-state, scroll
+│   │   ├── translations/  # UI strings (ES/EN)
+│   │   └── utils/         # motion helpers
+│   └── app.component.*    # page layout
+├── assets/                # images, icons, resume
+└── styles.css             # tokens, reset, layout, global components
+```

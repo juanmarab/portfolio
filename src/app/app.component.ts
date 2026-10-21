@@ -7,6 +7,7 @@ import { EducationComponent } from './components/education/education.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { BackToTopComponent } from './components/shared/back-to-top/back-to-top.component';
 import { SectionShellComponent } from './components/shared/section-shell/section-shell.component';
 import { SKILL_CATEGORIES } from './core/data/skills.data';
 import { EducationService } from './core/services/education.service';
@@ -29,7 +30,8 @@ import { ScrollService } from './core/services/scroll.service';
     SkillsComponent,
     AboutComponent,
     ProjectsComponent,
-    SectionShellComponent
+    SectionShellComponent,
+    BackToTopComponent
   ]
 })
 export class AppComponent {
