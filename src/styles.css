@@ -121,6 +121,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Set by the header while the mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
 h1,
 h2,
 h3,

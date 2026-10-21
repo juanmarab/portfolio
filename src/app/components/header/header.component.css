@@ -129,13 +129,14 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 20px;
+  /* 44px touch target around a 30x20 bar box */
+  width: 44px;
+  height: 44px;
   background: transparent;
   border: none;
   cursor: pointer;
   z-index: 1001;
-  padding: 0;
+  padding: 12px 7px;
 }
 
 .hamburger-btn .bar {
@@ -171,6 +172,9 @@
     left: 0;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
     background: rgba(10, 10, 12, 0.98);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -180,13 +184,33 @@
     gap: 2rem;
     opacity: 0;
     visibility: hidden;
-    transition: all var(--transition-normal);
+    transform: translateY(-12px);
+    transition: opacity var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out),
+      visibility 0s linear var(--dur-base);
     z-index: 1000;
   }
 
   .nav-menu.open {
     opacity: 1;
     visibility: visible;
+    transform: none;
+    transition-delay: 0s;
+  }
+
+  /* Links rise in one after another; the stagger only applies on open */
+  .nav-menu .nav-link,
+  .nav-menu .lang-toggle-btn {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+  }
+
+  .nav-menu.open .nav-link,
+  .nav-menu.open .lang-toggle-btn {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(var(--stagger) * var(--i, 0));
   }
 
   .nav-link {
