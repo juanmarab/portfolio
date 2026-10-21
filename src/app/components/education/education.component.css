@@ -10,15 +10,14 @@
     padding: 2rem 0;
 }
 
-/* The container never hides or moves: it only uses is-visible as the trigger for the line */
+/* Container never fades: is-visible only triggers the line */
 .timeline.reveal {
     opacity: 1;
     transform: none;
     animation: none;
 }
 
-/* Timeline vertical line, drawn top to bottom. --line-x keeps the desktop centring
-   inside every transform (base, visible and the scroll-driven keyframes). */
+/* Vertical line, drawn top to bottom; --line-x carries the desktop centring */
 .timeline::before {
     content: '';
     position: absolute;
@@ -37,7 +36,7 @@
     transform: translateX(var(--line-x, 0)) scaleY(1);
 }
 
-/* Where supported, the line follows the scroll instead of a one-shot transition */
+/* Where supported, the line follows the scroll */
 @supports (animation-timeline: view()) {
     .timeline::before {
         transition: none;
@@ -48,6 +47,13 @@
 
     .timeline.is-visible::before {
         transform: translateX(var(--line-x, 0));
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .timeline::before {
+            animation: none;
+            transform: translateX(var(--line-x, 0)) scaleY(1);
+        }
     }
 
     @keyframes draw-line {
@@ -70,7 +76,7 @@
 .timeline-dot {
     position: absolute;
     top: 0;
-    left: 2px;
+    left: 3px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -78,8 +84,7 @@
     border: 3px solid var(--color-secondary);
     /* Using secondary color for distinction */
     z-index: 2;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
-    /* Glow matching secondary */
+    box-shadow: 0 0 10px var(--color-secondary-glow);
 }
 
 .timeline-item.is-visible .timeline-dot {
@@ -200,10 +205,8 @@
     }
 
     .timeline-dot {
-        left: 50%;
         width: 16px;
         height: 16px;
-        transform: translateX(-50%);
     }
 
     .timeline-item {
@@ -215,9 +218,18 @@
         padding-right: 3rem;
     }
 
+    .timeline-item:nth-child(odd) .timeline-dot {
+        left: auto;
+        right: -8px;
+    }
+
     .timeline-item:nth-child(even) {
         margin-left: 50%;
         padding-left: 3rem;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: -8px;
     }
 
     .timeline-content {
@@ -230,7 +242,7 @@
     }
 }
 
-/* Content adjustment, not layout: stack the card header on very narrow screens */
+/* Content tweak, not layout: stack the card header on tiny screens */
 @media (max-width: 399px) {
     .education-header {
         flex-direction: column;

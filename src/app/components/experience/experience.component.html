@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="timeline" appReveal>
+  <div class="timeline" appReveal [revealThreshold]="0">
 
     <div *ngFor="let job of workHistory(); index as i" class="timeline-item" appReveal [revealDelay]="i * 90">
       <div class="timeline-dot"></div>

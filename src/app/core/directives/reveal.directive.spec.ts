@@ -11,6 +11,13 @@ import { RevealDirective } from './reveal.directive';
 })
 class HostComponent {}
 
+@Component({
+  standalone: true,
+  imports: [RevealDirective],
+  template: '<div appReveal [revealThreshold]="0"></div>'
+})
+class ThresholdHostComponent {}
+
 describe('RevealDirective', () => {
   let fixture: ComponentFixture<HostComponent>;
   let captured: (() => void) | undefined;
@@ -34,7 +41,7 @@ describe('RevealDirective', () => {
     };
 
     TestBed.configureTestingModule({
-      imports: [HostComponent],
+      imports: [HostComponent, ThresholdHostComponent],
       providers: [{ provide: RevealObserverService, useValue: fakeObserver }]
     });
   });
@@ -61,6 +68,13 @@ describe('RevealDirective', () => {
     const el = createHost();
 
     expect(el.style.getPropertyValue('--reveal-delay')).toBe('120ms');
+  });
+
+  it('forwards revealThreshold to the observer', () => {
+    TestBed.createComponent(ThresholdHostComponent).detectChanges();
+
+    expect(fakeObserver.observe).toHaveBeenCalledTimes(1);
+    expect(fakeObserver.observe.calls.mostRecent().args[2]).toEqual(jasmine.objectContaining({ threshold: 0 }));
   });
 
   it('is visible immediately under prefers-reduced-motion', () => {

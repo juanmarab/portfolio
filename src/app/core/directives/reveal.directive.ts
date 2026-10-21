@@ -9,6 +9,8 @@ import { prefersReducedMotion } from '../utils/motion';
 })
 export class RevealDirective implements OnInit, OnDestroy {
   @Input() revealDelay = 0;
+  /** Overrides the service's default visibility threshold, e.g. 0 for very tall hosts. */
+  @Input() revealThreshold?: number;
 
   @HostBinding('class.reveal') readonly reveal = true;
   @HostBinding('class.is-visible') visible = false;
@@ -29,10 +31,13 @@ export class RevealDirective implements OnInit, OnDestroy {
     }
 
     // The service may call back synchronously, before `stop` is assigned.
-    this.stop = this.revealObserver.observe(this.host.nativeElement, () => {
+    const onVisible = () => {
       this.visible = true;
       this.stop?.();
-    });
+    };
+    this.stop = this.revealThreshold === undefined
+      ? this.revealObserver.observe(this.host.nativeElement, onVisible)
+      : this.revealObserver.observe(this.host.nativeElement, onVisible, { threshold: this.revealThreshold });
   }
 
   ngOnDestroy(): void {
