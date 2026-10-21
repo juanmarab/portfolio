@@ -76,5 +76,9 @@ export const en = {
         projects_meta: '{n} projects',
         skills_meta: '{n} categories',
         education_meta: '{n} degrees'
+    },
+    cards: {
+        show_details: 'Show details',
+        hide_details: 'Hide details'
     }
 };

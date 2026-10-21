@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ExperienceService } from '../../core/services/experience.service';
 import { RevealDirective } from '../../core/directives/reveal.directive';
+import { CardDetailsComponent } from '../shared/card-details/card-details.component';
 import { LanguageService } from '../../core/services/language.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { LanguageService } from '../../core/services/language.service';
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.css'],
   standalone: true,
-  imports: [CommonModule, RevealDirective]
+  imports: [CommonModule, RevealDirective, CardDetailsComponent]
 })
 export class ExperienceComponent {
   private experienceService = inject(ExperienceService);

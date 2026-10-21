@@ -76,5 +76,9 @@ export const es = {
         projects_meta: '{n} proyectos',
         skills_meta: '{n} categorías',
         education_meta: '{n} títulos'
+    },
+    cards: {
+        show_details: 'Ver detalles',
+        hide_details: 'Ocultar detalles'
     }
 };

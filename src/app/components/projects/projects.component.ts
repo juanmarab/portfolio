@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProjectService } from '../../core/services/project.service';
 import { LanguageService } from '../../core/services/language.service';
 import { RevealDirective } from '../../core/directives/reveal.directive';
+import { CardDetailsComponent } from '../shared/card-details/card-details.component';
 import { IconComponent } from '../shared/icon/icon.component';
 
 @Component({
@@ -10,7 +11,7 @@ import { IconComponent } from '../shared/icon/icon.component';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
   standalone: true,
-  imports: [CommonModule, IconComponent, RevealDirective]
+  imports: [CommonModule, IconComponent, RevealDirective, CardDetailsComponent]
 })
 export class ProjectsComponent {
   private projectService = inject(ProjectService);

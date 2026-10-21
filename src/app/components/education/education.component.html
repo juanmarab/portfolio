@@ -26,9 +26,11 @@
           </div>
         </div>
 
-        <ul class="education-points">
-          <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
-        </ul>
+        <app-card-details>
+          <ul class="education-points">
+            <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
+          </ul>
+        </app-card-details>
       </div>
     </div>
 
