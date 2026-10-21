@@ -8,8 +8,9 @@ export class SectionStateService {
     private openState = signal<Record<string, boolean>>({});
     private openedState = signal<Record<string, boolean>>({});
     private instantFlag = signal(false);
+    private pendingFrame: number | null = null;
 
-    /** True for one frame after openUpTo, so sections can skip their height transition. */
+    /** True for two frames after openUpTo, so sections can skip their height transition. */
     readonly instant = this.instantFlag.asReadonly();
 
     register(id: string): void {
@@ -54,7 +55,24 @@ export class SectionStateService {
 
         this.instantFlag.set(true);
         this.openAll(this.order().slice(0, index + 1));
-        requestAnimationFrame(() => this.instantFlag.set(false));
+        this.scheduleInstantReset();
+    }
+
+    /**
+     * Clears `instant` after two frames. A single frame runs before the browser has
+     * styled the no-transition state, so it would only see the net change and animate.
+     * Only the latest call's reset survives; an earlier pending one is cancelled.
+     */
+    private scheduleInstantReset(): void {
+        if (this.pendingFrame !== null) {
+            cancelAnimationFrame(this.pendingFrame);
+        }
+        this.pendingFrame = requestAnimationFrame(() => {
+            this.pendingFrame = requestAnimationFrame(() => {
+                this.pendingFrame = null;
+                this.instantFlag.set(false);
+            });
+        });
     }
 
     private openAll(ids: readonly string[]): void {

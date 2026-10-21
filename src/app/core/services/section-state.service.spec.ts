@@ -75,18 +75,59 @@ describe('SectionStateService', () => {
     expect(service.instant()).toBeFalse();
   });
 
-  it('openUpTo sets instant until the next animation frame', () => {
-    let frame: FrameRequestCallback = () => {};
-    spyOn(window, 'requestAnimationFrame').and.callFake(cb => {
-      frame = cb;
-      return 1;
+  describe('instant', () => {
+    let frames: Map<number, FrameRequestCallback>;
+    let cancelSpy: jasmine.Spy;
+
+    // Frames only run when the test fires them; cancelled ones are dropped.
+    function stubAnimationFrames(): void {
+      frames = new Map();
+      let nextId = 1;
+      spyOn(window, 'requestAnimationFrame').and.callFake(cb => {
+        frames.set(nextId, cb);
+        return nextId++;
+      });
+      cancelSpy = spyOn(window, 'cancelAnimationFrame').and.callFake(id => {
+        frames.delete(id);
+      });
+    }
+
+    function runNextFrame(): void {
+      const [id, cb] = frames.entries().next().value!;
+      frames.delete(id);
+      cb(0);
+    }
+
+    beforeEach(() => {
+      stubAnimationFrames();
+      service.register('a');
     });
-    service.register('a');
 
-    service.openUpTo('a');
-    expect(service.instant()).toBeTrue();
+    it('openUpTo keeps instant for two animation frames', () => {
+      service.openUpTo('a');
+      expect(service.instant()).toBeTrue();
 
-    frame(0);
-    expect(service.instant()).toBeFalse();
+      runNextFrame();
+      expect(service.instant()).toBeTrue();
+
+      runNextFrame();
+      expect(service.instant()).toBeFalse();
+      expect(frames.size).toBe(0);
+    });
+
+    it('a second openUpTo before the frames fire cancels the earlier reset', () => {
+      service.openUpTo('a');
+      const firstFrameId = Array.from(frames.keys())[0];
+
+      service.openUpTo('a');
+      expect(cancelSpy).toHaveBeenCalledOnceWith(firstFrameId);
+      expect(frames.size).toBe(1);
+
+      runNextFrame();
+      expect(service.instant()).toBeTrue();
+
+      runNextFrame();
+      expect(service.instant()).toBeFalse();
+    });
   });
 });
