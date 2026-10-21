@@ -43,10 +43,12 @@ export class SectionShellComponent implements OnInit, OnDestroy {
       return;
     }
 
+    // The huge top margin makes buttons already scrolled past count as intersecting,
+    // so a fast fling cannot leave a closed section above the reader.
     this.stop = this.observer.observe(
       this.toggleBtn.nativeElement,
       () => this.autoOpen(),
-      { rootMargin: '0px 0px -40% 0px', threshold: 0 }
+      { rootMargin: '100000px 0px -40% 0px', threshold: 0 }
     );
   }
 

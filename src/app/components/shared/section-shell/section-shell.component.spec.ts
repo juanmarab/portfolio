@@ -128,7 +128,7 @@ describe('SectionShellComponent', () => {
     expect(observe).toHaveBeenCalledWith(
       toggleButton(),
       jasmine.any(Function),
-      { rootMargin: '0px 0px -40% 0px', threshold: 0 }
+      { rootMargin: '100000px 0px -40% 0px', threshold: 0 }
     );
 
     fireObserver();
@@ -190,6 +190,15 @@ describe('SectionShellComponent', () => {
 
     expect(shell().open()).toBeTrue();
     expect(section().classList).toContain('is-open');
+    expect(stopSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('unsubscribes on destroy', () => {
+    render();
+    expect(stopSpy).not.toHaveBeenCalled();
+
+    fixture.destroy();
+
     expect(stopSpy).toHaveBeenCalledTimes(1);
   });
 
