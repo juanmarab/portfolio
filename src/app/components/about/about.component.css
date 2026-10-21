@@ -162,6 +162,8 @@
     margin-bottom: 2rem;
     /* Keeps the ::after halo painted the same before, during and after the reveal */
     isolation: isolate;
+    /* The photo scales in instead of sliding up (read by the global .reveal) */
+    --reveal-from: scale(0.92);
 }
 
 .profile-image-wrapper::after {
@@ -173,15 +175,6 @@
     z-index: -1;
     opacity: 0.2;
     filter: blur(10px);
-}
-
-/* The photo scales in instead of sliding up (overrides the global .reveal translate) */
-.profile-image-wrapper.reveal {
-    transform: scale(0.92);
-}
-
-.profile-image-wrapper.reveal.is-visible {
-    transform: none;
 }
 
 .profile-image {
@@ -247,30 +240,24 @@
     }
 }
 
+.hero-trust-chip:hover {
+    border-color: var(--color-border-hover);
+    color: var(--color-text-main);
+}
+
+.hero-socials a:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
 /* Lift effects only where hover exists; on touch they would stick after a tap */
 @media (hover: hover) {
     .hero-trust-chip:hover {
-        border-color: var(--color-border-hover);
-        color: var(--color-text-main);
         transform: translateY(-1px);
     }
 
     .hero-socials a:hover {
-        color: var(--color-primary);
-        border-color: var(--color-primary);
         transform: translateY(-2px);
         box-shadow: 0 4px 15px var(--color-primary-glow);
-    }
-}
-
-/* The global reduced-motion rule shortens the animation but not its delay,
-   which would leave the hero invisible for up to 320ms */
-@media (prefers-reduced-motion: reduce) {
-    .hero-title,
-    .hero-subtitle,
-    .hero-trust-list,
-    .hero-ctas,
-    .hero-socials {
-        animation: none;
     }
 }

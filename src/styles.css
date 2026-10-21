@@ -65,20 +65,32 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
+    animation-delay: 0ms !important;
     scroll-behavior: auto !important;
   }
 }
 
+/* Entrance is an animation, not a transition: a component `transition` rule
+   (e.g. .app-card) cannot override it, and --reveal-delay never leaks into
+   later hover transitions. `backwards` holds the hidden state during the delay
+   and leaves normal styles in charge afterwards. --reveal-from lets a host
+   pick another starting transform. */
 .reveal {
   opacity: 0;
-  transform: translateY(var(--reveal-distance));
-  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
-  transition-delay: var(--reveal-delay, 0ms);
+  transform: var(--reveal-from, translateY(var(--reveal-distance)));
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  animation: reveal-in var(--dur-slow) var(--ease-out) backwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+@keyframes reveal-in {
+  from { opacity: 0; transform: var(--reveal-from, translateY(var(--reveal-distance))); }
+}
 
 @media print {
-  .reveal { opacity: 1; transform: none; }
+  .reveal, .reveal.is-visible { opacity: 1; transform: none; animation: none; }
   .section-body { grid-template-rows: 1fr !important; }
 }
 

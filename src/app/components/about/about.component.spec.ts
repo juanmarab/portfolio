@@ -36,7 +36,10 @@ describe('AboutComponent', () => {
   it('marks the profile image and the about card for reveal', () => {
     const root: HTMLElement = fixture.nativeElement;
 
-    expect(root.querySelector('.profile-image-wrapper')?.classList).toContain('reveal');
+    const wrapper = root.querySelector('.profile-image-wrapper') as HTMLElement;
+
+    expect(wrapper.classList).toContain('reveal');
     expect(root.querySelector('.about-content-card')?.classList).toContain('reveal');
+    expect(getComputedStyle(wrapper).getPropertyValue('--reveal-from').trim()).toBe('scale(0.92)');
   });
 });
