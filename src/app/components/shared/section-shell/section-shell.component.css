@@ -58,6 +58,11 @@
   transition: none;
 }
 
+/* Instant opens (hash, nav) must not animate the section padding either */
+.section.no-transition {
+  transition: none;
+}
+
 /* Collapsed sections sit tighter; .section animates its padding (styles.css) */
 .section:not(.is-open) {
   padding-block: 2.5rem;

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { RevealObserverService } from '../../core/services/reveal-observer.service';
 import { ScrollService } from '../../core/services/scroll.service';
 import { AboutComponent } from './about.component';
 
@@ -9,7 +10,8 @@ describe('AboutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AboutComponent]
+      imports: [AboutComponent],
+      providers: [{ provide: RevealObserverService, useValue: { observe: () => () => {} } }]
     })
     .compileComponents();
 
@@ -29,5 +31,12 @@ describe('AboutComponent', () => {
     component.scrollTo('projects');
 
     expect(scrollService.goTo).toHaveBeenCalledOnceWith('projects');
+  });
+
+  it('marks the profile image and the about card for reveal', () => {
+    const root: HTMLElement = fixture.nativeElement;
+
+    expect(root.querySelector('.profile-image-wrapper')?.classList).toContain('reveal');
+    expect(root.querySelector('.about-content-card')?.classList).toContain('reveal');
   });
 });

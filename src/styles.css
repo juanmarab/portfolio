@@ -324,10 +324,16 @@ a:hover {
 }
 
 .btn-primary-custom:hover {
-  transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--color-primary-glow);
   filter: brightness(1.1);
   color: #fff;
+}
+
+/* Lift only where hover exists; on touch it would stick after a tap */
+@media (hover: hover) {
+  .btn-primary-custom:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* Outlined Button Styling */
@@ -347,7 +353,12 @@ a:hover {
 .btn-outline-custom:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: var(--color-text-muted);
-  transform: translateY(-2px);
+}
+
+@media (hover: hover) {
+  .btn-outline-custom:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* Large size modifier for either button style */

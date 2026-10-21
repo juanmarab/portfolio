@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../core/services/language.service';
 import { ScrollService } from '../../core/services/scroll.service';
+import { RevealDirective } from '../../core/directives/reveal.directive';
 import { IconComponent } from '../shared/icon/icon.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { IconComponent } from '../shared/icon/icon.component';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
   standalone: true,
-  imports: [CommonModule, IconComponent]
+  imports: [CommonModule, IconComponent, RevealDirective]
 })
 export class AboutComponent {
   public langService = inject(LanguageService);

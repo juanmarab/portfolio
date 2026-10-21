@@ -2,15 +2,15 @@
   <div class="hero-bg-glow"></div>
   <div class="container hero-content">
     <div class="hero-inner">
-      <h1 class="hero-title">
+      <h1 class="hero-title" style="--i: 0">
         {{ langService.t().hero.title1 }} <br /><span class="text-gradient">{{ langService.t().hero.title2 }}</span>
       </h1>
 
-      <p class="hero-subtitle">
+      <p class="hero-subtitle" style="--i: 1">
         {{ langService.t().hero.subtitle }}
       </p>
 
-      <ul class="hero-trust-list" aria-label="Highlights">
+      <ul class="hero-trust-list" style="--i: 2" aria-label="Highlights">
         <li class="hero-trust-chip">
           <app-icon name="briefcase" [size]="14"></app-icon>
           <span>{{ langService.t().hero.trust_years }}</span>
@@ -25,7 +25,7 @@
         </li>
       </ul>
 
-      <div class="hero-ctas">
+      <div class="hero-ctas" style="--i: 3">
         <a href="assets/Resume2026.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary-custom btn-lg">
           <app-icon name="download" [size]="18"></app-icon>
           {{ langService.t().hero.download_cv }}
@@ -35,7 +35,7 @@
         </button>
       </div>
 
-      <div class="hero-socials" aria-label="Social links">
+      <div class="hero-socials" style="--i: 4" aria-label="Social links">
         <a href="https://www.linkedin.com/in/juanmarabunal/" target="_blank" rel="noopener noreferrer"
           [attr.aria-label]="langService.t().hero.social_linkedin_aria">
           <app-icon name="linkedin" [size]="22"></app-icon>
@@ -54,11 +54,12 @@
     <div class="about-inner">
 
       <div class="about-header">
-        <div class="profile-image-wrapper">
+        <div class="profile-image-wrapper" appReveal>
           <img src="assets/images/professional-photo.jpg"
             [alt]="langService.t().about.profile_alt"
             class="profile-image"
             loading="eager"
+            fetchpriority="high"
             decoding="async"
             width="180"
             height="180">
@@ -66,7 +67,7 @@
         <h2 class="section-title">{{ langService.t().about.section_title }}</h2>
       </div>
 
-      <div class="app-card about-content-card">
+      <div class="app-card about-content-card" appReveal [revealDelay]="120">
         <p class="about-text" [innerHTML]="langService.t().about.p1"></p>
 
         <p class="about-text" [innerHTML]="langService.t().about.p2"></p>
