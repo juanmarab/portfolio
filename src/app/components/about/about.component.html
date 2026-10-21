@@ -1,51 +1,49 @@
-<section class="hero-section text-center section-light">
+<section class="hero-section section-light">
   <div class="hero-bg-glow"></div>
   <div class="container hero-content">
-    <div class="row justify-content-center">
-      <div class="col-12 col-xl-10">
-        <h1 class="hero-title fw-bold">
-          {{ langService.t().hero.title1 }} <br /><span class="text-gradient">{{ langService.t().hero.title2 }}</span>
-        </h1>
+    <div class="hero-inner">
+      <h1 class="hero-title">
+        {{ langService.t().hero.title1 }} <br /><span class="text-gradient">{{ langService.t().hero.title2 }}</span>
+      </h1>
 
-        <p class="hero-subtitle">
-          {{ langService.t().hero.subtitle }}
-        </p>
+      <p class="hero-subtitle">
+        {{ langService.t().hero.subtitle }}
+      </p>
 
-        <ul class="hero-trust-row" aria-label="Highlights">
-          <li class="hero-trust-chip">
-            <app-icon name="briefcase" [size]="14"></app-icon>
-            <span>{{ langService.t().hero.trust_years }}</span>
-          </li>
-          <li class="hero-trust-chip">
-            <app-icon name="location" [size]="14"></app-icon>
-            <span>{{ langService.t().hero.trust_location }}</span>
-          </li>
-          <li class="hero-trust-chip">
-            <app-icon name="mortarboard" [size]="14"></app-icon>
-            <span>{{ langService.t().hero.trust_university }}</span>
-          </li>
-        </ul>
+      <ul class="hero-trust-list" aria-label="Highlights">
+        <li class="hero-trust-chip">
+          <app-icon name="briefcase" [size]="14"></app-icon>
+          <span>{{ langService.t().hero.trust_years }}</span>
+        </li>
+        <li class="hero-trust-chip">
+          <app-icon name="location" [size]="14"></app-icon>
+          <span>{{ langService.t().hero.trust_location }}</span>
+        </li>
+        <li class="hero-trust-chip">
+          <app-icon name="mortarboard" [size]="14"></app-icon>
+          <span>{{ langService.t().hero.trust_university }}</span>
+        </li>
+      </ul>
 
-        <div class="hero-cta-row d-flex justify-content-center flex-wrap gap-3">
-          <a href="assets/Resume2026.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary-custom btn-lg">
-            <app-icon name="download" [size]="18"></app-icon>
-            {{ langService.t().hero.download_cv }}
-          </a>
-          <button type="button" class="btn-outline-custom btn-lg" (click)="scrollTo('projects')">
-            {{ langService.t().hero.view_projects }}
-          </button>
-        </div>
+      <div class="hero-ctas">
+        <a href="assets/Resume2026.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary-custom btn-lg">
+          <app-icon name="download" [size]="18"></app-icon>
+          {{ langService.t().hero.download_cv }}
+        </a>
+        <button type="button" class="btn-outline-custom btn-lg" (click)="scrollTo('projects')">
+          {{ langService.t().hero.view_projects }}
+        </button>
+      </div>
 
-        <div class="hero-socials" aria-label="Social links">
-          <a href="https://www.linkedin.com/in/juanmarabunal/" target="_blank" rel="noopener noreferrer"
-            [attr.aria-label]="langService.t().hero.social_linkedin_aria">
-            <app-icon name="linkedin" [size]="22"></app-icon>
-          </a>
-          <a href="https://github.com/juanmarab" target="_blank" rel="noopener noreferrer"
-            [attr.aria-label]="langService.t().hero.social_github_aria">
-            <app-icon name="github" [size]="22"></app-icon>
-          </a>
-        </div>
+      <div class="hero-socials" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/juanmarabunal/" target="_blank" rel="noopener noreferrer"
+          [attr.aria-label]="langService.t().hero.social_linkedin_aria">
+          <app-icon name="linkedin" [size]="22"></app-icon>
+        </a>
+        <a href="https://github.com/juanmarab" target="_blank" rel="noopener noreferrer"
+          [attr.aria-label]="langService.t().hero.social_github_aria">
+          <app-icon name="github" [size]="22"></app-icon>
+        </a>
       </div>
     </div>
   </div>
@@ -53,35 +51,33 @@
 
 <section class="section section-dark" id="about">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-8">
+    <div class="about-inner">
 
-        <div class="about-header">
-          <div class="profile-image-wrapper">
-            <img src="assets/images/professional-photo.jpg"
-              [alt]="langService.t().about.profile_alt"
-              class="profile-image"
-              loading="eager"
-              decoding="async"
-              width="180"
-              height="180">
-          </div>
-          <h2 class="section-title">{{ langService.t().about.section_title }}</h2>
+      <div class="about-header">
+        <div class="profile-image-wrapper">
+          <img src="assets/images/professional-photo.jpg"
+            [alt]="langService.t().about.profile_alt"
+            class="profile-image"
+            loading="eager"
+            decoding="async"
+            width="180"
+            height="180">
         </div>
-
-        <div class="app-card about-content-card">
-          <p class="about-text" [innerHTML]="langService.t().about.p1"></p>
-
-          <p class="about-text" [innerHTML]="langService.t().about.p2"></p>
-
-          <p class="about-text" [innerHTML]="langService.t().about.p3"></p>
-
-          <div class="about-highlight">
-            {{ langService.t().about.highlight }}
-          </div>
-        </div>
-
+        <h2 class="section-title">{{ langService.t().about.section_title }}</h2>
       </div>
+
+      <div class="app-card about-content-card">
+        <p class="about-text" [innerHTML]="langService.t().about.p1"></p>
+
+        <p class="about-text" [innerHTML]="langService.t().about.p2"></p>
+
+        <p class="about-text" [innerHTML]="langService.t().about.p3"></p>
+
+        <div class="about-highlight">
+          {{ langService.t().about.highlight }}
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

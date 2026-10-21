@@ -42,10 +42,37 @@
   overflow: hidden;
 }
 
+/* Title-to-content gap. A spacer rather than padding-top: padding would keep
+   the 0fr row at least that tall, leaving an empty band under a collapsed title. */
+.section-body-inner::before {
+  content: '';
+  display: block;
+  height: 2rem;
+}
+
 .is-open .section-body {
   grid-template-rows: 1fr;
 }
 
 .no-transition .section-body {
   transition: none;
+}
+
+/* Collapsed sections sit tighter; .section animates its padding (styles.css) */
+.section:not(.is-open) {
+  padding-block: 2.5rem;
+}
+
+.section-title--toggle {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .section:not(.is-open) {
+    padding-block: 3rem;
+  }
+
+  .section-body-inner::before {
+    height: 3rem;
+  }
 }

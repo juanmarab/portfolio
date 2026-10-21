@@ -1,5 +1,74 @@
-/* Premium Contact Form Styles */
+/* --- Layout --- */
+.contact-inner {
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.contact-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contact-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.contact-column-title {
+  font-size: clamp(1.3rem, 1.275rem + 0.3vw, 1.5rem);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.calendly-card {
+  flex: 1 1 auto;
+  height: auto;
+  padding: 0.5rem;
+}
+
+/* --- Form --- */
+.form-field {
+  margin-bottom: 1.5rem;
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--color-text-main);
+  margin-bottom: 0.5rem;
+}
+
+.field-label app-icon {
+  color: var(--color-primary);
+}
+
+.contact-submit {
+  width: 100%;
+}
+
+/* Premium input look on a plain, block-level field */
 .premium-input {
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  appearance: none;
+  background-clip: padding-box;
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--color-border);
   color: var(--color-text-main);
@@ -19,14 +88,6 @@
 .premium-input::placeholder {
   color: var(--color-text-muted);
   opacity: 0.6;
-}
-
-/* Ensure label has correct styling */
-.form-label {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  color: var(--color-text-main);
-  margin-bottom: 0.5rem;
 }
 
 form.app-card {

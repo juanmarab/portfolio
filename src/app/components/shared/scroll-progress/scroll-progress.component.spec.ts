@@ -42,11 +42,29 @@ describe('ScrollProgressComponent', () => {
     expect(bar.style.transform).toBe('scaleX(0.25)');
   });
 
-  it('keeps a single animation frame pending while scrolling', () => {
+  it('seeds progress after the first render', () => {
+    const raf = spyOn(window, 'requestAnimationFrame').and.callFake((cb: FrameRequestCallback) => {
+      cb(0);
+      return 0;
+    });
+    spyOnProperty(window, 'scrollY', 'get').and.returnValue(600);
+    spyOnProperty(window, 'innerHeight', 'get').and.returnValue(800);
+    spyOnProperty(document.documentElement, 'scrollHeight', 'get').and.returnValue(2000);
+
+    const seeded = TestBed.createComponent(ScrollProgressComponent);
+    seeded.detectChanges();
+
+    expect(raf).toHaveBeenCalledTimes(1);
+    expect(seeded.componentInstance.progress()).toBe(0.5);
+  });
+
+  it('keeps a single animation frame pending while scrolling', async () => {
+    // Let the frame requested by the first-render seed run first.
+    await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
     const raf = spyOn(window, 'requestAnimationFrame').and.returnValue(1);
 
-    component.onScroll();
-    component.onScroll();
+    component.scheduleUpdate();
+    component.scheduleUpdate();
 
     expect(raf).toHaveBeenCalledTimes(1);
   });

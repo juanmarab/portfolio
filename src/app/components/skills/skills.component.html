@@ -2,7 +2,7 @@
     <div class="skills-bg-glow"></div>
     <div class="container skills-container">
         <!-- Filter Tabs -->
-        <div class="filter-tabs d-flex flex-wrap justify-content-center gap-2 mb-5">
+        <div class="filter-tabs">
             <button class="filter-btn" [class.active]="activeCategory === 'all'" (click)="setActiveCategory('all')">
                 {{ langService.t().skills.categories['all'] }}
             </button>
@@ -12,12 +12,12 @@
             </button>
         </div>
 
-        <div *ngFor="let category of displayedCategories" class="skills-category-group mb-5">
-            <h3 class="category-title text-center mb-4" *ngIf="activeCategory === 'all'">{{ langService.t().skills.categories[category.titleKey] }}</h3>
+        <div *ngFor="let category of displayedCategories" class="skills-category-group">
+            <h3 class="category-title" *ngIf="activeCategory === 'all'">{{ langService.t().skills.categories[category.titleKey] }}</h3>
             <div class="skills-grid">
                 <div *ngFor="let skill of category.items" class="skill-card">
                     <div class="skill-icon-wrapper">
-                        <img [src]="skill.icon" [alt]="skill.name + ' Logo'" loading="lazy" decoding="async">
+                        <img [src]="skill.icon" [alt]="skill.name + ' Logo'" width="48" height="48" loading="lazy" decoding="async">
                     </div>
                     <p class="skill-name">{{ skill.name }}</p>
                 </div>

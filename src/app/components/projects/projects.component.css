@@ -136,6 +136,10 @@
     gap: 1rem;
 }
 
+.project-repo-btn {
+    width: 100%;
+}
+
 .project-actions .btn-icon {
     display: inline-flex;
     margin-right: 8px;

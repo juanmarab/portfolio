@@ -53,8 +53,20 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root { --dur-fast: 0ms; --dur-base: 0ms; --dur-slow: 0ms; --stagger: 0ms; --reveal-distance: 0px; }
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  :root {
+    --dur-fast: 0ms; --dur-base: 0ms; --dur-slow: 0ms; --stagger: 0ms; --reveal-distance: 0px;
+    /* Legacy tokens follow the motion tokens so they collapse too */
+    --transition-fast: var(--dur-fast) cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: var(--dur-base) cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-short: var(--transition-fast);
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .reveal {
@@ -102,11 +114,59 @@ main:focus {
   outline: none;
 }
 
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+ul {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+}
+
 /* --- Base Styles --- */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   /* Offset for fixed header */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -116,9 +176,10 @@ body {
   margin: 0;
   padding-top: 80px;
   /* Header space */
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Set by the header while the mobile menu is open */
@@ -136,6 +197,7 @@ h6 {
   font-weight: 700;
   color: var(--color-text-main);
   margin-bottom: 1rem;
+  line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
@@ -149,10 +211,34 @@ a:hover {
   filter: brightness(1.2);
 }
 
-/* --- Reusable Premium Layout Utilities --- */
+/* --- Layout --- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
 .section {
-  padding: 6rem 0;
+  padding: 3.5rem 0;
   position: relative;
+  transition: padding var(--dur-slow) var(--ease-out);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: 1.5rem;
+  }
+
+  .section {
+    padding: 5rem 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .section {
+    padding: 6rem 0;
+  }
 }
 
 /* Subtle background variants */
@@ -264,9 +350,15 @@ a:hover {
   transform: translateY(-2px);
 }
 
+/* Large size modifier for either button style */
+.btn-lg {
+  padding: 0.9rem 1.75rem;
+  font-size: 1rem;
+}
+
 /* Section Headings */
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
   margin: 0 auto 3rem auto;
   text-align: center;
   position: relative;

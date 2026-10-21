@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, signal } from '@angular/core';
+import { Component, HostListener, OnDestroy, afterNextRender, signal } from '@angular/core';
 
 /** Fraction of the page scrolled, from 0 (top) to 1 (bottom). */
 export function computeProgress(scrollY: number, scrollHeight: number, innerHeight: number): number {
@@ -39,8 +39,14 @@ export class ScrollProgressComponent implements OnDestroy {
 
   private frame = 0;
 
+  constructor() {
+    // Seed the bar for a page that loads already scrolled (reload, deep link).
+    afterNextRender(() => this.scheduleUpdate());
+  }
+
   @HostListener('window:scroll')
-  onScroll(): void {
+  @HostListener('window:resize')
+  scheduleUpdate(): void {
     if (this.frame) {
       return;
     }

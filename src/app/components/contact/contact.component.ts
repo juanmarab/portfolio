@@ -3,6 +3,7 @@ import emailjs from 'emailjs-com';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CalendlyWidgetComponent } from '../shared/calendly-widget/calendly-widget.component';
+import { IconComponent } from '../shared/icon/icon.component';
 import { LanguageService } from '../../core/services/language.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { LanguageService } from '../../core/services/language.service';
   imports: [
     CommonModule,
     FormsModule,
-    CalendlyWidgetComponent
+    CalendlyWidgetComponent,
+    IconComponent
   ],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']

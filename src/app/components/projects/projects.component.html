@@ -4,7 +4,7 @@
 
       <div class="project-header">
         <div class="project-logo" *ngIf="project.logo">
-          <img [src]="project.logo" [alt]="project.title + ' Logo'" loading="lazy" decoding="async">
+          <img [src]="project.logo" [alt]="project.title + ' Logo'" width="50" height="50" loading="lazy" decoding="async">
         </div>
         <div class="project-title-area">
           <h3 class="project-title">{{ project.title }}</h3>
@@ -26,7 +26,7 @@
 
         <div class="project-actions">
           <a *ngIf="project.linkUrl" [href]="project.linkUrl" target="_blank" rel="noopener noreferrer"
-            class="btn-primary-custom w-100">
+            class="btn-primary-custom project-repo-btn">
             <span class="btn-icon">
               <app-icon name="github" [size]="16"></app-icon>
             </span>
