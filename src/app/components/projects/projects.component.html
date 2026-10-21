@@ -34,6 +34,10 @@
             </span>
             {{ langService.t().projects.repo_button }}
           </a>
+          <span *ngIf="!project.linkUrl && project.inProgress" class="project-status-badge">
+            <span class="status-dot" aria-hidden="true"></span>
+            {{ langService.t().projects.active_badge }}
+          </span>
         </div>
       </div>
 

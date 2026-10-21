@@ -15,6 +15,36 @@ export interface ExperienceRecord {
 
 export const EXPERIENCE_DATA: ExperienceRecord[] = [
     {
+        id: 'make',
+        logo: 'assets/images/companies/make_software_labs_logo.jpg',
+        companyName: 'Make Software Labs',
+        technologies: ['Java', 'Spring Boot', 'Angular', 'React', 'Python (FastAPI)', 'LLMs (Claude / Bedrock)', 'Computer Vision', 'AWS', 'PostgreSQL / MySQL', 'FHIR / HL7'],
+        es: {
+            role: 'Full Stack Developer (AI/ML)',
+            period: 'Julio 2026 — Presente',
+            achievements: [
+                'A cargo de las decisiones técnicas y de producto en los proyectos que llevo: defino qué construir y cómo, escribo el diseño y el plan de implementación, y lo desarrollo de punta a punta.',
+                'Plataforma SaaS multi-tenant de patología digital (Java/Spring Boot + Angular, AWS): desarrollo funcionalidades para visualizar, anotar y analizar con IA imágenes de láminas completas (WSI), incluidos protocolos oncológicos CAP de mama y próstata con estadificación y graduación automáticas.',
+                'Diseñé la generación de informes médicos asistida por IA: plantillas deterministas para el contenido clínico y LLMs (Amazon Bedrock) solo para el texto libre, con trazabilidad de cada frase y des-identificación de los datos de pacientes.',
+                'Integré visión por computadora (segmentación celular con HoVer-Net, segmentación interactiva con SAM2 sobre GPU en AWS, lectura de etiquetas con QR + OCR) y la interoperabilidad con laboratorios mediante FHIR R4 y HL7 v2.',
+                'Chatbot de analítica en lenguaje natural sobre MySQL (Python/FastAPI + React): definí la evolución del MVP, decidí migrar de un LLM local a Claude (Anthropic) e incorporé autocorrección de SQL, conversaciones persistentes, un modo asesor comercial basado en los datos consultados y controles de seguridad.',
+                'Sistema de gestión comercial en Java EE (JSF/PrimeFaces): definí y ejecuté la modernización de la interfaz en todos sus módulos (facturación, campañas, contactos, indicadores) y el rediseño de las facturas PDF.'
+            ]
+        },
+        en: {
+            role: 'Full Stack Developer (AI/ML)',
+            period: 'July 2026 — Present',
+            achievements: [
+                'Own the technical and product decisions on the projects I lead: I define what to build and how, write the design and implementation plan, and develop it end to end.',
+                'Multi-tenant digital pathology SaaS platform (Java/Spring Boot + Angular, AWS): build features to view, annotate and AI-analyze whole slide images (WSI), including CAP breast and prostate oncology protocols with automatic staging and grading.',
+                'Designed AI-assisted medical report generation: deterministic templates for clinical content and LLMs (Amazon Bedrock) only for free text, with sentence-level traceability and patient-data de-identification.',
+                'Integrated computer vision (HoVer-Net cell segmentation, interactive SAM2 segmentation on AWS GPUs, QR + OCR slide-label reading) and lab interoperability through FHIR R4 and HL7 v2.',
+                'Natural-language analytics chatbot over MySQL (Python/FastAPI + React): drove the MVP\'s evolution, decided to migrate from a local LLM to Claude (Anthropic), and added SQL self-correction, persistent conversations, a data-grounded commercial advisor mode and security controls.',
+                'Java EE business management system (JSF/PrimeFaces): defined and delivered the UI modernization across all modules (billing, campaigns, contacts, KPIs) and the redesign of PDF invoices.'
+            ]
+        }
+    },
+    {
         id: 'kinamic',
         logo: 'assets/images/companies/kinamic.png',
         companyName: 'Kinamic Technologies',

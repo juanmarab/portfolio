@@ -21,7 +21,7 @@ export const EDUCATION_DATA: EducationRecord[] = [
         es: {
             degree: 'Licenciatura en Sistemas',
             achievements: [
-                'Cursando el último año de la Licenciatura en Sistemas, con un fuerte enfoque en ingeniería de software, arquitectura de sistemas y tecnologías modernas.',
+                'Licenciatura en Sistemas finalizada en agosto de 2026, con un fuerte enfoque en ingeniería de software, arquitectura de sistemas y tecnologías modernas.',
                 'Desarrollo de habilidades avanzadas en resolución de problemas técnicos complejos a través de proyectos prácticos orientados al mundo empresarial.',
                 'Sólida experiencia en metodologías ágiles, liderazgo técnico y colaboración en equipos multidisciplinarios para la entrega continua de valor.'
             ]
@@ -29,7 +29,7 @@ export const EDUCATION_DATA: EducationRecord[] = [
         en: {
             degree: 'Bachelor in Systems Engineering',
             achievements: [
-                'Currently in the final year of the Systems Engineering program, with a strong focus on software engineering, systems architecture, and modern technologies.',
+                'Graduated in August 2026 from the Systems Engineering program, with a strong focus on software engineering, systems architecture, and modern technologies.',
                 'Developing advanced skills in complex technical problem solving through practical, enterprise-oriented projects.',
                 'Solid experience in agile methodologies, technical leadership, and multidisciplinary team collaboration for continuous value delivery.'
             ]

@@ -5,7 +5,7 @@ export interface Project {
     subtitle: string;
     period: string;
     achievements: { label: string; text: string }[];
-    linkUrl: string;
-    githubUrl?: string;
+    linkUrl?: string;
+    inProgress?: boolean;
     techStack: string[];
 }

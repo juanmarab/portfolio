@@ -15,6 +15,7 @@ export class ProjectService {
             id: proj.id,
             logo: proj.logo,
             linkUrl: proj.linkUrl,
+            inProgress: proj.inProgress,
             techStack: proj.techStack,
             title: proj[lang].title,
             subtitle: proj[lang].subtitle,

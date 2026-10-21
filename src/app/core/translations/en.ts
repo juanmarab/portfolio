@@ -9,22 +9,22 @@ export const en = {
     },
     hero: {
         title1: 'Full-Stack Developer',
-        title2: 'Specialist in .NET, AWS & Angular',
-        subtitle: 'Building scalable web applications and automating workflows to solve complex business problems. Over 3 years of experience delivering efficient code and user-centric solutions.',
+        title2: 'Specialist in AI/ML, Java, .NET & Angular',
+        subtitle: 'I build scalable web platforms and AI-powered systems end to end, from product and architecture decisions to deployment on AWS. Full Stack Developer (AI/ML) at Make Software Labs and founder of SIAL.',
         download_cv: 'Download Resume',
         view_projects: 'View Projects',
         trust_years: '3+ years experience',
         trust_location: 'Montevideo, Uruguay',
-        trust_university: 'ORT University',
+        trust_university: 'ORT University graduate',
         social_linkedin_aria: 'Open LinkedIn profile in a new tab',
         social_github_aria: 'Open GitHub profile in a new tab'
     },
     about: {
         section_title: 'Beyond the Code',
         profile_alt: 'Juan Manuel Rabuñal - Professional profile photo',
-        p1: 'I am a Software Developer with over 3 years of experience specializing in the <strong>.NET ecosystem and Angular</strong>. My focus goes beyond writing code; I engineer end-to-end solutions, building scalable architectures that optimize performance and drive real business value for my clients and team.',
-        p2: 'Currently, I am in the final stages of developing <strong>Guard-IA</strong>, my academic thesis: an advanced cybersecurity system engineered to detect corporate email fraud and phishing. In this project, I leverage Artificial Intelligence and Deep Learning for complex text analysis, integrating predictive models and LLMs into a secure, highly available environment.',
-        p3: 'Alongside my research, I leverage tools like <strong>n8n and Make</strong> to build automations that significantly reduce operational friction, while also architecting complex B2B SaaS platforms. I thrive in collaborative Agile/Scrum environments, where I proactively tackle high-level technical challenges and continuously adopt emerging technologies.',
+        p1: 'I am a Full-Stack Developer with over 3 years of experience across <strong>.NET, Java/Spring Boot and Angular</strong>. I go beyond writing code: I own technical and product decisions, write the design and the implementation plan, and build it end to end with scalable architectures on AWS.',
+        p2: 'In August 2026 I graduated from Universidad ORT Uruguay with a Bachelor in Systems Engineering. My final project, <strong>Guard-IA</strong>, an AI-powered system that detects corporate email fraud and phishing with Deep Learning and LLMs, earned a 97% grade.',
+        p3: 'Today I work as Full Stack Developer (AI/ML) at <strong>Make Software Labs</strong>, building a digital pathology SaaS with computer vision and LLMs, and I am the founder of <strong>SIAL</strong>, an occupational health platform for Uruguay that I design, build and run on my own. I thrive in Agile/Scrum environments and continuously adopt emerging technologies.',
         highlight: 'Let\'s build something incredible together.'
     },
     experience: {
@@ -32,7 +32,8 @@ export const en = {
     },
     projects: {
         section_title: 'Featured Projects',
-        repo_button: 'View Repository'
+        repo_button: 'View Repository',
+        active_badge: 'In active development'
     },
     education: {
         section_title: 'Academic Background'
