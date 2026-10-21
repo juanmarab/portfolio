@@ -79,6 +79,51 @@ describe('RevealObserverService', () => {
     expect(spy).not.toHaveBeenCalled();
   });
 
+  it('fires both callbacks when the same element is observed under two option keys', () => {
+    const first = jasmine.createSpy('first');
+    const second = jasmine.createSpy('second');
+
+    const stopFirst = service.observe(el, first);
+    service.observe(el, second, { rootMargin: '0px 0px -40% 0px', threshold: 0 });
+    const [defaults, custom] = FakeIntersectionObserver.instances;
+
+    fire(defaults, el, true);
+    fire(custom, el, true);
+    expect(first).toHaveBeenCalledTimes(1);
+    expect(second).toHaveBeenCalledTimes(1);
+
+    stopFirst();
+    expect(defaults.unobserve).toHaveBeenCalledWith(el);
+    expect(custom.unobserve).not.toHaveBeenCalled();
+
+    fire(custom, el, true);
+    expect(second).toHaveBeenCalledTimes(2);
+  });
+
+  it('keeps a second subscription alive when the first one on the same element and key stops', () => {
+    const first = jasmine.createSpy('first');
+    const second = jasmine.createSpy('second');
+
+    const stopFirst = service.observe(el, first);
+    service.observe(el, second);
+    const instance = FakeIntersectionObserver.instances[0];
+
+    stopFirst();
+    expect(instance.unobserve).not.toHaveBeenCalled();
+
+    fire(instance, el, true);
+    expect(first).not.toHaveBeenCalled();
+    expect(second).toHaveBeenCalledTimes(1);
+  });
+
+  it('forwards options to the observer and preserves threshold 0', () => {
+    service.observe(el, () => {});
+    service.observe(el, () => {}, { rootMargin: '0px 0px -40% 0px', threshold: 0 });
+
+    expect(FakeIntersectionObserver.instances[0].options).toEqual({ rootMargin: '0px 0px -8% 0px', threshold: 0.15 });
+    expect(FakeIntersectionObserver.instances[1].options).toEqual({ rootMargin: '0px 0px -40% 0px', threshold: 0 });
+  });
+
   it('calls onVisible immediately when IntersectionObserver is unavailable', () => {
     delete win.IntersectionObserver;
     const spy = jasmine.createSpy('onVisible');
