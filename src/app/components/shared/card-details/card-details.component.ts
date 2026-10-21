@@ -5,26 +5,78 @@ import { LanguageService } from '../../../core/services/language.service';
 let nextId = 0;
 
 /**
- * Collapsible detail area for a card (experience, project, education).
- * The projected content stays in the DOM, is clipped while closed and
- * becomes inert so it never receives focus; a toggle button opens it.
+ * Expandable card: the projected `[cardHeader]` (logo, title, description) is always
+ * visible and acts as the click target; the rest of the content stays in the DOM,
+ * clipped and inert while closed, and expands on click. A small chevron button
+ * carries the accessible state for keyboard and screen-reader users.
  */
 @Component({
   selector: 'app-card-details',
   standalone: true,
   imports: [CommonModule],
   template: `
+    <div class="card-head" [class.is-open]="open()" (click)="toggle()">
+      <div class="card-head-main"><ng-content select="[cardHeader]" /></div>
+      <button type="button" class="card-chevron" (click)="toggle(); $event.stopPropagation()"
+        [attr.aria-expanded]="open()" [attr.aria-controls]="bodyId"
+        [attr.aria-label]="open() ? lang.t().cards.hide_details : lang.t().cards.show_details">
+        <span class="chev" aria-hidden="true"></span>
+      </button>
+    </div>
     <div class="details" [class.is-open]="open()" [attr.inert]="open() ? null : ''" [id]="bodyId">
       <div class="details-inner"><ng-content /></div>
     </div>
-    <button type="button" class="details-toggle" [class.is-open]="open()" (click)="toggle()"
-      [attr.aria-expanded]="open()" [attr.aria-controls]="bodyId">
-      <span>{{ open() ? lang.t().cards.hide_details : lang.t().cards.show_details }}</span>
-      <span class="details-chevron" aria-hidden="true"></span>
-    </button>
   `,
   styles: [`
     :host { display: block; }
+
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      cursor: pointer;
+    }
+
+    .card-head-main {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .card-chevron {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: background-color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+    }
+
+    .chev {
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform var(--dur-base) var(--ease-out);
+    }
+
+    .card-head.is-open .chev {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    @media (hover: hover) {
+      .card-head:hover .card-chevron {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--color-border-hover);
+        color: var(--color-text-main);
+      }
+    }
 
     .details {
       display: grid;
@@ -40,68 +92,24 @@ let nextId = 0;
       overflow: clip;
     }
 
-    /* Gap between the detail content and the toggle, clipped away while closed */
-    .details-inner::after {
+    /* Gap between the header and the detail content, clipped away while closed */
+    .details-inner::before {
       content: '';
       display: block;
       height: 1.25rem;
     }
 
-    .details-toggle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      width: 100%;
-      min-height: 44px;
-      padding: 0.55rem 1rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--color-border);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--color-text-main);
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
-    }
-
-    .details-toggle:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--color-border-hover);
-    }
-
-    .details-chevron {
-      width: 8px;
-      height: 8px;
-      border-right: 2px solid currentColor;
-      border-bottom: 2px solid currentColor;
-      transform: translateY(-2px) rotate(45deg);
-      transition: transform var(--dur-base) var(--ease-out);
-    }
-
-    .details-toggle.is-open .details-chevron {
-      transform: translateY(2px) rotate(225deg);
-    }
-
-    /* Project cards have no padding of their own: inset the toggle */
-    :host-context(.project-card) .details-toggle {
-      width: calc(100% - 2.5rem);
-      margin: 1.25rem 1.25rem 1.25rem;
-    }
-
-    :host-context(.project-card) .details-inner::after { height: 0; }
+    /* Project cards carry their own padding inside the header and body */
+    :host-context(.project-card) .card-head { padding-right: 1.25rem; align-items: center; }
+    :host-context(.project-card) .details-inner::before { height: 0; }
 
     @media (min-width: 768px) {
-      :host-context(.project-card) .details-toggle {
-        width: calc(100% - 4rem);
-        margin: 1.5rem 2rem 1.5rem;
-      }
+      :host-context(.project-card) .card-head { padding-right: 2rem; }
     }
 
     @media print {
       .details { grid-template-rows: 1fr !important; }
-      .details-toggle { display: none; }
+      .card-chevron { display: none; }
     }
   `]
 })

@@ -5,7 +5,8 @@
       <div class="timeline-dot"></div>
 
       <div class="timeline-content">
-        <div class="education-header">
+        <app-card-details>
+        <div cardHeader class="education-header">
           <div class="institution-logo" *ngIf="edu.logo">
             <img [src]="edu.logo" [alt]="edu.institution + ' Logo'" width="60" height="60" loading="lazy" decoding="async">
           </div>
@@ -26,7 +27,6 @@
           </div>
         </div>
 
-        <app-card-details>
           <ul class="education-points">
             <li *ngFor="let achievement of edu.achievements">{{ achievement }}</li>
           </ul>

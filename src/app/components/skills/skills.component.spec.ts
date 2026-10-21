@@ -33,10 +33,10 @@ describe('SkillsComponent', () => {
     const root: HTMLElement = fixture.nativeElement;
     const before = root.querySelector('.skill-card')!;
 
-    component.setActiveCategory('backend');
+    component.setActiveCategory('frontend');
     fixture.detectChanges();
 
-    const backend = SKILL_CATEGORIES.find(category => category.titleKey === 'backend')!;
+    const backend = SKILL_CATEGORIES.find(category => category.titleKey === 'frontend')!;
     const after = root.querySelectorAll('.skill-card');
 
     expect(after.length).toBe(backend.items.length);

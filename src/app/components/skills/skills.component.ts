@@ -13,13 +13,13 @@ import { SKILL_CATEGORIES, SkillCategory } from '../../core/data/skills.data';
 export class SkillsComponent implements OnInit {
   public langService = inject(LanguageService);
 
-  activeCategory: string = 'all';
+  activeCategory: string = 'backend';
 
   skillCategories: SkillCategory[] = SKILL_CATEGORIES;
   displayedCategories: SkillCategory[] = SKILL_CATEGORIES;
 
   ngOnInit() {
-    this.displayedCategories = this.skillCategories;
+    this.setActiveCategory(this.activeCategory);
   }
 
   setActiveCategory(categoryKey: string) {

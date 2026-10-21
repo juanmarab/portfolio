@@ -2,12 +2,18 @@
          [class.is-open]="open()" [class.no-transition]="sections.instant()">
   <div class="container">
     <h2 class="section-title section-title--toggle">
-      <button #toggleBtn type="button" class="section-toggle" (click)="toggle()"
+      <button *ngIf="collapsible; else staticTitle" #toggleBtn type="button" class="section-toggle" (click)="toggle()"
               [attr.aria-expanded]="open()" [attr.aria-controls]="sectionId + '-body'">
         <span class="section-title-text">{{ title }}</span>
         <span class="section-meta" *ngIf="meta">{{ meta }}</span>
         <span class="section-chevron" aria-hidden="true"></span>
       </button>
+      <ng-template #staticTitle>
+        <span class="section-static">
+          <span class="section-title-text">{{ title }}</span>
+          <span class="section-meta" *ngIf="meta">{{ meta }}</span>
+        </span>
+      </ng-template>
     </h2>
   </div>
   <div class="section-body" [id]="sectionId + '-body'" [attr.inert]="open() ? null : ''">

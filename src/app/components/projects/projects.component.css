@@ -48,8 +48,7 @@
 
 .project-header {
     position: relative;
-    padding: 1.25rem 1.25rem 1rem;
-    border-bottom: 1px solid var(--color-border);
+    padding: 1.25rem 1.25rem 1.25rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -89,6 +88,7 @@
 }
 
 .project-body {
+    border-top: 1px solid var(--color-border);
     padding: 1.25rem;
     flex-grow: 1;
     display: flex;
@@ -119,7 +119,7 @@
 
 @media (min-width: 768px) {
     .project-header {
-        padding: 2rem 2rem 1.5rem;
+        padding: 1.75rem 2rem;
     }
 
     .project-body,

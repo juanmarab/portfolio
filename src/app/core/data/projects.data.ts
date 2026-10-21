@@ -22,7 +22,7 @@ export const PROJECTS_DATA: ProjectRecord[] = [
         inProgress: true,
         techStack: ['Angular 17', 'ASP.NET Core 8', 'PostgreSQL 16', 'AWS', 'Terraform', 'Docker', 'Clerk'],
         es: {
-            title: 'SIAL — Salud Ocupacional',
+            title: 'SIAL',
             subtitle: 'SaaS multi-tenant de salud ocupacional para Uruguay · Fundador y CEO',
             period: '2026 — Presente',
             achievements: [
@@ -33,7 +33,7 @@ export const PROJECTS_DATA: ProjectRecord[] = [
             ]
         },
         en: {
-            title: 'SIAL — Occupational Health',
+            title: 'SIAL',
             subtitle: 'Multi-tenant occupational health SaaS for Uruguay · Founder & CEO',
             period: '2026 — Present',
             achievements: [
@@ -78,7 +78,7 @@ export const PROJECTS_DATA: ProjectRecord[] = [
         inProgress: true,
         techStack: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Drizzle ORM', 'PostgreSQL (Neon)', 'Better Auth', 'Vercel'],
         es: {
-            title: 'Distribuidora Dalsan — Nueva web y catálogo autogestionable',
+            title: 'Distribuidora Dalsan',
             subtitle: 'De WordPress/WooCommerce a Next.js con panel de administración propio',
             period: '2026 — Presente',
             achievements: [
@@ -89,7 +89,7 @@ export const PROJECTS_DATA: ProjectRecord[] = [
             ]
         },
         en: {
-            title: 'Distribuidora Dalsan — New website and self-managed catalog',
+            title: 'Distribuidora Dalsan',
             subtitle: 'From WordPress/WooCommerce to Next.js with a custom admin panel',
             period: '2026 — Present',
             achievements: [

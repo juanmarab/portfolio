@@ -3,7 +3,8 @@
     <article *ngFor="let project of projectsList(); index as i" class="app-card project-card" appReveal
       [revealDelay]="i * 80">
 
-      <div class="project-header">
+      <app-card-details>
+      <div cardHeader class="project-header">
         <div class="project-logo" *ngIf="project.logo">
           <img [src]="project.logo" [alt]="project.title + ' Logo'" width="50" height="50" loading="lazy" decoding="async">
         </div>
@@ -13,7 +14,6 @@
         </div>
       </div>
 
-      <app-card-details>
       <div class="project-body">
         <div *ngFor="let acc of project.achievements" class="project-achievement">
           <strong>{{ acc.label }}:</strong>

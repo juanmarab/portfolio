@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, computed, effect, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, computed, effect, inject } from '@angular/core';
 
 import { RevealObserverService } from '../../../core/services/reveal-observer.service';
 import { SectionStateService } from '../../../core/services/section-state.service';
@@ -11,14 +11,16 @@ import { SectionStateService } from '../../../core/services/section-state.servic
   styleUrls: ['./section-shell.component.css'],
   imports: [CommonModule],
 })
-export class SectionShellComponent implements OnInit, OnDestroy {
+export class SectionShellComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input({ required: true }) sectionId!: string;
   @Input() title = '';
   @Input() meta?: string;
   @Input() tone: 'dark' | 'light' = 'light';
   @Input() startOpen = false;
+  /** When false the section is always open and the title is plain text. */
+  @Input() collapsible = true;
 
-  @ViewChild('toggleBtn', { static: true }) private toggleBtn!: ElementRef<HTMLButtonElement>;
+  @ViewChild('toggleBtn') private toggleBtn?: ElementRef<HTMLButtonElement>;
 
   readonly sections = inject(SectionStateService);
   private readonly observer = inject(RevealObserverService);
@@ -38,8 +40,13 @@ export class SectionShellComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sections.register(this.sectionId);
 
-    if (this.startOpen) {
+    if (this.startOpen || !this.collapsible) {
       this.sections.open(this.sectionId);
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (this.open() || !this.collapsible || !this.toggleBtn) {
       return;
     }
 
