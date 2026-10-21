@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="timeline">
+  <div class="timeline" appReveal>
 
-    <div *ngFor="let edu of educationHistory()" class="timeline-item">
+    <div *ngFor="let edu of educationHistory(); index as i" class="timeline-item" appReveal [revealDelay]="i * 90">
       <div class="timeline-dot"></div>
 
       <div class="timeline-content">
