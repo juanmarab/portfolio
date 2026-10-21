@@ -40,6 +40,8 @@
 .section-body-inner {
   min-height: 0;
   overflow: hidden;
+  /* clip, unlike hidden, is not a scroll container: view() timelines inside keep following the page scroll */
+  overflow: clip;
 }
 
 /* Title-to-content gap. A spacer rather than padding-top: padding would keep
